@@ -1,0 +1,146 @@
+   :root {
+      --text-color: #d9d9d9;
+      --bg-color: #000000;
+      --label-color: #ffffff;
+   }
+
+   html.inverted {
+      --text-color: #222222;
+      --bg-color: #ffffff;
+      --label-color: #000000;
+   }
+   html.add-contrast:not(.inverted) {
+  --text-color: #bfbfbf;
+   }
+
+   html.add-contrast.inverted {  
+--text-color: #555555;
+   }
+
+   body {
+         font-family: Open Sans, Arial;
+         margin: 2em auto;
+         color: var(--text-color);
+         background-color: var(--bg-color);
+         padding: 0;
+         font-size: 16px;
+         max-width: 800px;
+         padding: 1em;
+         line-height: 1.4;
+         -webkit-hyphens: auto;
+         -moz-hyphens: auto;
+         hyphens: auto;
+   }
+   .wr{
+      text-decoration: underline;
+   }
+   .changecolor{
+      animation: changecolor 1s infinite;
+   }
+   .cool{
+      color: #444;
+   }
+   .cool::before{
+      content: "";
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      margin-left: 0.2em;
+      margin-right: 0.2em;     
+      background-color: #444;
+      
+   }
+      .better{
+         color: #454545;
+      }
+      .better::before{
+      content: "";
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      margin-left: 0.2em;
+      margin-right: 0.2em;     
+      background-color: #444;
+      
+   }
+   .image-container {
+      flex-direction: row;
+      display: flex;
+      gap: 20px;
+   align-items:  flex-start;
+   }
+   .image-container .left {
+      width: 50%;
+      flex: 1;
+   }
+   .image-container .right {
+         flex: 2;
+      }
+   .left img {
+      width: 100%;
+      display: block;
+      margin-bottom: .7em;
+   }
+   .design{
+      margin-left: 0;
+      margin-top: 2em;
+      margin-bottom: 2em;
+   }
+   .design::before{
+      font-family: Times New Roman, Times, Arial;
+      color: #666;
+      display: inline-block;
+      content: open-quote;
+      font-size: 2.2em;
+      font-weight: 600;
+      margin-right: .9rem;
+      width: 1.2rem;
+   }
+   cite::before{
+      content: "— ";
+      margin-right: 1em;
+
+   }
+
+   cite{
+   font-size: 0.6em;
+   display: block;
+   margin-left: 2.1rem;
+   }
+   .controls {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      text-align: right;
+   }
+
+   .controls label {
+      text-decoration: underline;
+      display: block;
+      color: var(--label-color);
+      cursor: pointer;
+      margin-bottom: 5px;
+   }
+
+      @keyframes changecolor {
+      0% { color: #ff0000; }
+      25% { color: #00ff00; }
+      50% { color: #0000ff; }
+      75% { color: #ffff00; }
+      100% { color: #ff00ff; }
+   }
+
+   .mfw {
+         font-weight: bold;
+         color: #b00000;
+      }
+   a{
+      color: #00a2e7;
+   }
+   a:visited{
+      color: #ca1a70;
+   }
+   .wr{
+      color: #d24637;
+   }
+   
