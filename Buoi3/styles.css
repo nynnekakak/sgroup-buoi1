@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 40px auto;
+    max-width: 1400px;
+    font-weight: 400;
+}
+
+header div{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.social li a {
+    border-radius: 100%;
+    color: #FFF;
+    width: 24px;
+    height: 24px;
+    background-color: #F26464;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.social li a:hover{
+    background-color: #000;
+   transition: all 0.3s ease;
+}
+.social {
+    flex-direction: row;
+    display: flex;
+    gap: 10px;  
+    list-style: none;
+}
+.dsg{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+
+}
+.dsg span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    background-color: #000;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 12px;
+}
+.avatar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+    gap: 150px; 
+}
+.avatar img {
+    width: 33.33%;
+    height: auto;
+}
+.avatar ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+    gap: 70px;
+}
+.avatar strong {
+    color: #F26464;
+    font-size: 36px;
+    font-weight: 800;
+}
+.avatar p {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+.skills .core {
+    width: 50%;
+}
+.skills .other {
+    width: 50%;
+}
+.skills ul{
+    padding-left: 0;
+}
+.skills li{
+    display: inline-block;
+    color: #373737;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #FFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 27px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+.experience{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+}
+.experience div {
+width: 48%;
+}
+
+.experience .time {
+      color: #373737;
+    font-size: 14px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.experience h3 {
+  font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.experience .major {
+    color: #373737;
+    font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+.experience p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+}
+.experience ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+}
+.experience ul li {
+     font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.experience ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    background-color: #373737;
+}
+.btn {
+    padding: 17px 30px;
+    border-radius: 60px;
+    border:2px solid #F26464;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #F26464;
+    font-weight: 600;
+    line-height: 13px;
+    letter-spacing: 3px;
+   
+}
+.btn:hover {
+    background-color: #F26464;
+    color: #FFF;
+     transition: all 0.3s ease;
+}
