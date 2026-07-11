@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bắt đồ rơi và né vật cản</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="game-page">
+        <section class="game-shell">
+            <div class="top-bar">
+                <div>
+                    <p class="label">Điểm</p>
+                    <strong id="score">0</strong>
+                </div>
+                <div>
+                    <p class="label">Mạng</p>
+                    <strong id="lives">3</strong>
+                </div>
+                <div>
+                    <p class="label">Cấp</p>
+                    <strong id="level">1</strong>
+                </div>
+                <div>
+                    <p class="label">Kỷ lục</p>
+                    <strong id="bestScore">0</strong>
+                </div>
+            </div>
+
+            <div class="game-board" id="gameBoard">
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <div class="player" id="player"></div>
+
+                <div class="overlay" id="overlay">
+                    <h1>Bắt và né</h1>
+                    <p id="message">
+                        Hứng quả để cộng điểm, bắt tim để hồi mạng, né đá và bom.
+                    </p>
+                    <button id="startButton" type="button">Bắt đầu</button>
+                </div>
+            </div>
+
+            <div class="legend">
+                <span><i class="mini fruit"></i> +10 điểm</span>
+                <span><i class="mini heart"></i> +1 mạng</span>
+                <span><i class="mini rock"></i> Né</span>
+                <span><i class="mini bomb"></i> Né</span>
+            </div>
+
+            <div class="controls">
+                <button id="leftButton" type="button" aria-label="Sang trái">&lt;</button>
+                <button id="pauseButton" type="button">Tạm dừng</button>
+                <button id="rightButton" type="button" aria-label="Sang phải">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

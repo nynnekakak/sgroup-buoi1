@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #fff;
+        color: #111;
+      }
+
+      .page-content {
+        padding-top: 180px;
+      }
+
+      .back-btn {
+        margin-bottom: 40px;
+      }
+
+      .cl-header {
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px 0;
+        transition: all 0.2s ease;
+        z-index: 10;
+      }
+
+      .cl-header-content {
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s ease;
+      }
+
+      .logo {
+        text-decoration: none;
+        color: #111;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition: all 0.2s ease;
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        background: #111;
+        color: #fff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      .logo-text {
+        font-size: 28px;
+        letter-spacing: 3px;
+        transition: all 0.2s ease;
+      }
+
+      .social {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+      }
+
+      .social a {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #f26464;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+
+      .social a:hover {
+        background: black;
+      }
+
+      .cl-header-small {
+        height: 80px;
+        padding: 10px 0;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      .cl-header-hidden {
+        opacity: 0;
+        height: 80px;
+      }
+
+      .resume-btn {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 12px 36px;
+        border: 2px solid #f26464;
+        border-radius: 1000px;
+        text-decoration: none;
+        color: #f26464;
+        letter-spacing: 4px;
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.2s ease;
+      }
+
+      .resume-btn:hover {
+        background-color: #f26464;
+        color: white;
+      }
+
+      .ds-work-det-title {
+        font-size: clamp(2rem, 4vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .ds-work-det-dep {
+        color: #666;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .ds-work-content-sec {
+        margin-bottom: 28px;
+      }
+
+      .ds-work-content-sec h2 {
+        margin-top: 24px;
+        margin-bottom: 14px;
+        font-size: 1.75rem;
+      }
+
+      .ds-work-content-sec p,
+      .ds-work-content-sec li {
+        line-height: 1.8;
+        color: #333;
+      }
+
+      .ds-work-content-sec ul {
+        padding-left: 1.2rem;
+      }
+
+      figure img {
+        display: block;
+      }
+
+      footer {
+        height: 600px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cl-header">
+      <div class="container cl-header-content">
+        <a href="#" class="logo">
+          <span class="logo-mark">J</span>
+          <span class="logo-text">Jason</span>
+        </a>
+        <!-- Social media icons -->
+        <ul class="social">
+          <li>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-stack-overflow"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="container">
+        <a href="index.html" class="resume-btn back-btn">Back</a>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 col-xl-10">
+            <header class="ds-work-det-hed mb-4">
+              <h1 class="ds-work-det-title">Tripy mobile app</h1>
+              <span class="ds-work-det-dep">Mobile development - 2019</span>
+            </header>
+
+            <figure class="mb-4">
+              <img
+                src="https://www.designstub.com/demos/defolio/assets/images/work-1.jpg"
+                class="img-fluid rounded-4 shadow-sm w-100"
+                alt="Project preview 1"
+              />
+            </figure>
+
+            <div class="ds-work-content-sec">
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-9 col-lg-8">
+                  <p>
+                    Phasellus non faucibus purus, a venenatis diam. In faucibus
+                    orci mauris, porttitor egestas diam elementum non.
+                    Vestibulum non metus tempus, sagittis libero sed, euismod
+                    purus. Cras dolor nulla, hendrerit vitae libero eu, finibus
+                    ultricies dolor. Vestibulum non metus tempus, sagittis
+                    libero sed, euismod purus. Cras dolor nulla, hendrerit vitae
+                    libero eu, finibus ultricies dolor.
+                  </p>
+
+                  <p>
+                    Curabitur quis tortor sit amet ligula lobortis auctor. Class
+                    aptent taciti sociosqu ad litora torquent per conubia
+                    nostra, per inceptos himenaeos. Integer ut turpis eget urna
+                    egestas maximus.
+                  </p>
+
+                  <h2>Sub Title for project</h2>
+                  <p>
+                    Phasellus non faucibus purus, a venenatis diam. In faucibus
+                    orci mauris, porttitor egestas diam elementum non.
+                    Vestibulum non metus tempus, sagittis libero sed, euismod
+                    purus. Cras dolor nulla, hendrerit vitae libero eu, finibus
+                    ultricies dolor. Vestibulum non metus tempus, sagittis
+                    libero sed, euismod purus. Cras dolor nulla, hendrerit vitae
+                    libero eu, finibus ultricies dolor.
+                  </p>
+
+                  <ul>
+                    <li>
+                      Phasellus non faucibus purus, a venenatis diam. In
+                      faucibus orci mauris, porttitor egestas diam elementum
+                      non.
+                    </li>
+                    <li>
+                      Vestibulum non metus tempus, sagittis libero sed, euismod
+                      purus.
+                    </li>
+                    <li>
+                      Vestibulum non metus tempus, sagittis libero sed, euismod
+                      purus. Cras dolor nulla, hendrerit vitae libero eu,
+                      finibus ultricies dolor. Vestibulum non metus tempus.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <figure class="my-4">
+              <img
+                src="https://www.designstub.com/demos/defolio/assets/images/work-2.jpg"
+                class="img-fluid rounded-4 shadow-sm w-100"
+                alt="Project preview 2"
+              />
+            </figure>
+
+            <div class="ds-work-content-sec">
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-9 col-lg-8">
+                  <p>
+                    Phasellus non faucibus purus, a venenatis diam. In faucibus
+                    orci mauris, porttitor egestas diam elementum non.
+                    Vestibulum non metus tempus, sagittis libero sed, euismod
+                    purus. Cras dolor nulla, hendrerit vitae libero eu, finibus
+                    ultricies dolor. Vestibulum non metus tempus, sagittis
+                    libero sed, euismod purus. Cras dolor nulla, hendrerit vitae
+                    libero eu, finibus ultricies dolor.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <h3 style="color: gray">STAY IN TOUCH</h3>
+      <h1 style="font-size: 50px">Ready to talk?</h1>
+      <p style="letter-spacing: 1px; font-size: 18px">
+        Feel free to contact us
+      </p>
+      <div class="resume-btn">LETS TALK</div>
+      <p style="color: gray; margin-top: 50px">
+        © 2022 All rights reserved. Free minimal bootstrap template by
+        Designstub.
+      </p>
+    </footer>
+
+    <script>
+      let lastScroll = window.scrollY;
+      window.addEventListener("scroll", function () {
+        const scroll = window.scrollY;
+        if (scroll > 50) {
+          document
+            .getElementsByClassName("cl-header")[0]
+            .classList.add("cl-header-small");
+        } else {
+          document
+            .getElementsByClassName("cl-header")[0]
+            .classList.remove("cl-header-small");
+        }
+
+        if (scroll > lastScroll) {
+          document
+            .getElementsByClassName("cl-header")[0]
+            .classList.add("cl-header-hidden");
+        } else {
+          document
+            .getElementsByClassName("cl-header")[0]
+            .classList.remove("cl-header-hidden");
+        }
+
+        lastScroll = scroll;
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

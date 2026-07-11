@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CapCut | Trình chỉnh sửa ảnh và video AI</title>
+    <meta
+      name="description"
+      content="Bản dựng giao diện CapCut Việt Nam bằng HTML, CSS và JavaScript với các animation tương tác."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#editor" aria-label="CapCut">
+        <span class="brand-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8.5 13.5h31L24.9 24 39.5 34.5h-31L23.1 24 8.5 13.5Z" />
+          </svg>
+        </span>
+        <span>CapCut</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Mở menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" data-nav>
+        <div class="nav-item">
+          <a href="#products">Sản phẩm</a>
+          <div class="mega-menu">
+            <a href="#products"><strong>CapCut cho máy tính</strong><span>Công cụ chỉnh sửa mạnh mẽ</span></a>
+            <a href="#products"><strong>CapCut trên web</strong><span>Trình chỉnh sửa video trực tuyến</span></a>
+            <a href="#products"><strong>CapCut Pad</strong><span>Chỉnh sửa mọi lúc, mọi nơi</span></a>
+            <a href="#products"><strong>CapCut cho di động</strong><span>Trình chỉnh sửa video bằng AI</span></a>
+            <a href="#products"><strong>Dreamina AI</strong><span>Công cụ tạo hình ảnh và video</span></a>
+            <a href="#products"><strong>Pippit AI</strong><span>Trợ lý sáng tạo thông minh</span></a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#features">Tính năng</a>
+          <div class="mega-menu wide">
+            <div>
+              <b>Tạo bằng AI</b>
+              <a href="#features">Thiết kế bằng AI</a>
+              <a href="#features">Studio tạo video</a>
+              <a href="#features">Trình tạo video bằng AI</a>
+              <a href="#features">Trình tạo hình ảnh bằng AI</a>
+              <a href="#features">Nâng cấp hình ảnh bằng AI</a>
+            </div>
+            <div>
+              <b>Văn bản và âm thanh</b>
+              <a href="#features">Phụ đề tự động</a>
+              <a href="#features">Mẫu phụ đề</a>
+              <a href="#features">Nhận dạng lời nói</a>
+              <a href="#features">Chuyển văn bản thành lời nói</a>
+              <a href="#features">Cải thiện giọng nói</a>
+            </div>
+            <div>
+              <b>Hình ảnh và video</b>
+              <a href="#features">Xóa nền</a>
+              <a href="#features">Gộp hình ảnh</a>
+              <a href="#features">Cắt video</a>
+              <a href="#features">Thêm phụ đề vào video</a>
+              <a href="#features">Trình chuyển đổi video</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#blog">Blog</a>
+          <div class="mega-menu wide blog-menu">
+            <div>
+              <b>Tính năng</b>
+              <a href="#blog">Công cụ AI</a>
+              <a href="#blog">Trình chỉnh sửa video</a>
+              <a href="#blog">Trình chỉnh sửa hình ảnh</a>
+            </div>
+            <div>
+              <b>Trường hợp sử dụng</b>
+              <a href="#blog">Mạng xã hội</a>
+              <a href="#blog">Tiếp thị</a>
+              <a href="#blog">Phong cách sống và vlog</a>
+            </div>
+            <div>
+              <b>Tài nguyên</b>
+              <a href="#blog">Hướng dẫn cách làm</a>
+              <a href="#blog">Xu hướng thị trường</a>
+              <a href="#blog">Lựa chọn hàng đầu</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#templates">Mẫu</a>
+          <div class="mega-menu templates-menu">
+            <a href="#templates"><strong>Mẫu cho mạng xã hội</strong><span>Reels, TikTok, Instagram</span></a>
+            <a href="#templates"><strong>Mẫu ngày lễ</strong><span>Nội dung theo mùa</span></a>
+            <a href="#templates"><strong>Mẫu hiệu ứng</strong><span>Chuyển động AI</span></a>
+            <a href="#templates"><strong>Mẫu cho doanh nghiệp</strong><span>Quảng cáo và thương hiệu</span></a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#explore">Khám phá</a>
+          <div class="mega-menu">
+            <a href="#explore"><strong>Cộng đồng</strong><span>Kết nối cùng nhà sáng tạo</span></a>
+            <a href="#explore"><strong>Tiếp thị liên kết</strong><span>Sáng kiến dành cho đối tác</span></a>
+            <a href="#explore"><strong>Trung tâm tin cậy</strong><span>Bảo mật và minh bạch</span></a>
+            <a href="#explore"><strong>Trung tâm trợ giúp</strong><span>Hướng dẫn và hỗ trợ</span></a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="language" type="button">Tiếng Việt</button>
+        <a class="btn btn-soft" href="#editor">Dùng thử trực tuyến</a>
+        <a class="btn btn-dark" href="#download">Tải xuống</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="editor">
+        <div class="hero-copy reveal">
+          <h1>Trình chỉnh sửa ảnh và video với công nghệ AI dành cho mọi người</h1>
+          <p>
+            CapCut có mọi thứ bạn cần để tạo nội dung thịnh hành trên YouTube,
+            Instagram và nhiều nền tảng khác.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-mint" href="#features">Dùng thử trực tuyến miễn phí</a>
+            <a class="btn btn-outline" href="#download">Tải xuống</a>
+          </div>
+          <span class="credit-note">Không yêu cầu thẻ tín dụng</span>
+        </div>
+
+        <div class="hero-product reveal" data-tilt>
+          <div class="workspace-window">
+            <div class="workspace-top">
+              <div class="traffic"><span></span><span></span><span></span></div>
+              <strong>CapCut Web Editor</strong>
+              <button type="button">Xuất</button>
+            </div>
+            <div class="workspace-body">
+              <aside class="editor-sidebar" aria-label="Thanh công cụ">
+                <span class="on"></span><span></span><span></span><span></span><span></span>
+              </aside>
+              <div class="video-preview">
+                <div class="portrait-card">
+                  <img
+                    src="https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/5c48a0b582ac4f8a8ed411480183cd91~tplv-2zwwjm3azk-compress%3Aq75.image"
+                    alt="Bản xem trước chỉnh sửa bằng AI"
+                  />
+                </div>
+                <div class="caption-pill">AI effects</div>
+                <div class="play" aria-hidden="true"></div>
+              </div>
+              <aside class="editor-panel" aria-label="Bảng công cụ AI">
+                <b>AI tools</b>
+                <span></span><span></span><span></span>
+                <div class="panel-meter"><i></i></div>
+              </aside>
+            </div>
+            <div class="timeline">
+              <div></div><div></div><div></div><div></div>
+              <i></i>
+            </div>
+          </div>
+          <div class="float-chip chip-left">Phụ đề tự động</div>
+          <div class="float-chip chip-right">Xóa nền 1 chạm</div>
+        </div>
+      </section>
+
+      <section class="ai-suite" id="products">
+        <div class="section-title reveal">
+          <h2>Trình chỉnh sửa và tạo thông minh</h2>
+        </div>
+        <div class="suite-grid">
+          <a class="suite-card reveal active" href="#features">
+            <span>01</span>
+            <h3>Thiết kế bằng AI</h3>
+            <p>Tạo thiết kế chuyên nghiệp bằng AI trực tuyến cho bài đăng mạng xã hội, ảnh bìa và tài nguyên tiếp thị.</p>
+          </a>
+          <a class="suite-card reveal" href="#features">
+            <span>02</span>
+            <h3>Studio tạo video</h3>
+            <p>Trò chuyện nhanh với trình chỉnh sửa video bằng AI để tạo video từ đầu, gồm phong cách và ảnh đại diện.</p>
+          </a>
+          <a class="suite-card reveal" href="#features">
+            <span>03</span>
+            <h3>Trình tạo hình ảnh bằng AI</h3>
+            <p>Biến văn bản hoặc hình ảnh tham khảo thành hình ảnh tùy chỉnh, ấn tượng.</p>
+          </a>
+          <a class="suite-card reveal" href="#features">
+            <span>04</span>
+            <h3>Trình tạo video bằng AI</h3>
+            <p>Biến văn bản, hình ảnh hoặc khung hình chính thành video bằng trình chỉnh sửa video trực tuyến.</p>
+          </a>
+          <a class="suite-card reveal" href="#features">
+            <span>05</span>
+            <h3>Chuyển văn bản thành lời nói</h3>
+            <p>Tạo giọng nói AI tự nhiên cho thuyết minh, video, podcast và nội dung chuyên nghiệp.</p>
+          </a>
+        </div>
+
+        <div class="logo-marquee reveal" aria-label="Đối tác">
+          <div>
+            <span>NVIDIA</span><span>TikTok</span><span>Runway</span><span>Google</span>
+            <span>NVIDIA</span><span>TikTok</span><span>Runway</span><span>Google</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section" id="features">
+        <div class="feature-head reveal">
+          <div>
+            <h2>Công cụ chỉnh sửa bằng AI</h2>
+            <p>Các tính năng chỉnh sửa bằng AI đáng tin cậy và thiết yếu từ CapCut để tạo văn bản, âm thanh và video.</p>
+          </div>
+          <a class="btn btn-dark" href="#editor">Dùng thử trực tuyến</a>
+        </div>
+
+        <div class="feature-shell reveal">
+          <div class="feature-tabs" role="tablist" aria-label="Danh mục công cụ">
+            <button class="active" type="button" data-tab="image"><span>01</span>Hình ảnh</button>
+            <button type="button" data-tab="video"><span>02</span>Video</button>
+            <button type="button" data-tab="audio"><span>03</span>Văn bản và âm thanh</button>
+            <button type="button" data-tab="template"><span>04</span>Mẫu sáng tạo</button>
+          </div>
+          <div class="feature-content">
+            <div class="feature-list" data-tool-list></div>
+            <div class="feature-preview" data-tool-visual>
+              <img alt="" data-tool-img />
+              <span class="scan-line"></span>
+              <span class="scan-label">AI analyzing</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="template-section" id="templates">
+        <div class="section-title reveal">
+          <h2>Mẫu cho mọi thứ</h2>
+          <p>
+            Từ các thiết kế do AI tạo đến những tác phẩm kinh điển vượt thời gian,
+            tìm cách bắt đầu hoàn hảo chỉ bằng một cú nhấp chuột cho video bất kỳ trên CapCut.
+          </p>
+          <a class="btn btn-dark" href="#editor">Dùng thử trực tuyến</a>
+        </div>
+        <div class="template-grid reveal">
+          <article><span>Reels và TikTok</span></article>
+          <article><span>Mạng xã hội</span></article>
+          <article><span>Hiệu ứng AI</span></article>
+          <article><span>Kinh doanh</span></article>
+          <article><span>Ngày lễ</span></article>
+        </div>
+      </section>
+
+      <section class="reviews" id="blog">
+        <div class="section-title reveal">
+          <h2>Nhận xét từ người dùng của chúng tôi</h2>
+          <p>
+            CapCut được yêu thích trên toàn thế giới vì khả năng chỉnh sửa video dễ dàng,
+            giúp nhà sáng tạo tạo nội dung tuyệt vời một cách nhanh chóng.
+          </p>
+          <a class="btn btn-dark" href="#editor">Dùng thử trực tuyến</a>
+        </div>
+        <div class="review-track reveal" data-slider>
+          <article class="review-card active">
+            <p>"Tính năng chỉnh sửa tự động giống như phép màu vậy! Tôi tải lên vài clip ngẫu nhiên và có ngay một video tóm tắt rất hay."</p>
+            <strong>Sarah Johnson</strong>
+          </article>
+          <article class="review-card">
+            <p>"Tôi thích sự linh hoạt vì có thể chọn một mẫu cổ điển hoặc để AI tạo ra thiết kế độc đáo cho dự án của mình."</p>
+            <strong>Olivia Turner</strong>
+          </article>
+          <article class="review-card">
+            <p>"Tất cả công cụ cơ bản đều có sẵn và dễ tìm, thao tác cắt chỉnh nhanh gọn, các nút điều khiển trực quan."</p>
+            <strong>PixelPantry</strong>
+          </article>
+          <article class="review-card">
+            <p>"Chỉ mất vài giây là tôi đã có một hình nền tùy chỉnh cho vlog và kết quả thì đẹp ngoài mong đợi."</p>
+            <strong>Jayden_M</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="stats" id="download">
+        <article class="stat reveal"><strong data-count="100">0</strong><span>M Nội dung tải xuống</span></article>
+        <article class="stat reveal"><strong data-count="100">0</strong><span>K Nhà sáng tạo</span></article>
+        <article class="stat reveal"><strong data-count="47">0</strong><span>Xếp hạng trên cửa hàng ứng dụng</span></article>
+        <article class="stat reveal"><strong data-count="20">0</strong><span>Ngôn ngữ</span></article>
+      </section>
+    </main>
+
+    <footer class="footer" id="explore">
+      <div class="footer-brand">
+        <a class="brand" href="#editor">
+          <span class="brand-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8.5 13.5h31L24.9 24 39.5 34.5h-31L23.1 24 8.5 13.5Z" /></svg>
+          </span>
+          <span>CapCut</span>
+        </a>
+        <p>Trình chỉnh sửa sử dụng AI dành cho mọi người</p>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <b>Sản phẩm</b>
+          <a href="#products">CapCut cho máy tính</a>
+          <a href="#products">CapCut trên web</a>
+          <a href="#products">CapCut Pad</a>
+          <a href="#products">CapCut cho di động</a>
+        </div>
+        <div>
+          <b>Tính năng AI</b>
+          <a href="#features">Trình tạo hình ảnh bằng AI</a>
+          <a href="#features">Trình tạo video bằng AI</a>
+          <a href="#features">Thiết kế bằng AI</a>
+          <a href="#features">Công cụ tạo phụ đề tự động</a>
+        </div>
+        <div>
+          <b>Hình ảnh và video</b>
+          <a href="#features">Xóa nền</a>
+          <a href="#features">Công cụ tăng độ phân giải hình ảnh</a>
+          <a href="#features">Chép lời video</a>
+          <a href="#features">Nén video</a>
+        </div>
+        <div>
+          <b>Công ty</b>
+          <a href="#blog">Blog</a>
+          <a href="#explore">Trung tâm trợ giúp</a>
+          <a href="#explore">Phòng tin tức</a>
+          <a href="#explore">Trung tâm tin cậy</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>Tiếng Việt</span>
+        <span>Điều khoản dịch vụ</span>
+        <span>Chính sách quyền riêng tư</span>
+        <span>Chính sách cookie</span>
+        <span>Thỏa thuận cấp phép</span>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+      }
+
+      .navbar {
+        background: #1e1e2e;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 4px;
+      }
+
+      .nav-links a {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        padding: 16px 14px;
+        font-size: 14px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+        border-radius: 4px;
+      }
+
+      .nav-links a:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-links a.active {
+        color: white;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* Hamburger — ẩn trên desktop */
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: white;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          gap: 0;
+          position: absolute;
+          top: 56px;
+          left: 0;
+          right: 0;
+          background: #1e1e2e;
+          padding: 8px 16px 16px;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">MyBrand</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="active">Trang chủ</a></li>
+        <li><a href="#">Dịch vụ</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <script>
+      // 1. Active link khi click
+      const links = document.querySelectorAll(".nav-links a");
+
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          links.forEach((l) => l.classList.remove("active"));
+          e.target.classList.add("active");
+        });
+      });
+
+      // 2. Hamburger toggle (mobile)
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

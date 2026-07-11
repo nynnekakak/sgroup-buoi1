@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
 }
+:root {
+    --container-max: 1400px;
+    --page-gap: 20px;
+}
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -9,14 +13,17 @@ body {
 }
 
 header {
+    opacity: 1;
     width: 100%;
     height: 120px;
     background-color: #FFF;
     transition: all 0.3s ease;
     z-index: 5;
-}
+    position: sticky;
+    top: 0;
+}   
 .header-container {
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     height: 100%;
     margin:0 auto; 
     display: flex;
@@ -25,7 +32,6 @@ header {
 }
 
 header.sticky {
-    position: fixed;
     top: 0;
     left: 0;
     height: 80px;
@@ -55,6 +61,8 @@ header.sticky {
     display: flex;
     gap: 10px;  
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .dsg{
     display: flex;
@@ -78,13 +86,13 @@ header.sticky {
     margin-right: 12px;
 }
 .avatar {
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     margin: 40px auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin-top: 40px;
-    gap: 150px; 
+    gap: clamp(40px, 8vw, 150px);
 }
 .avatar img {
     width: 33.33%;
@@ -110,7 +118,7 @@ header.sticky {
     letter-spacing: 1px;
 }
 .skills {
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     margin: 40px auto;
     display: flex;
     flex-direction: row;
@@ -140,7 +148,7 @@ header.sticky {
     font-weight: 500;
 }
 .experience{
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     margin: 40px auto;  
    
 }
@@ -224,7 +232,7 @@ width: 48%;
      transition: all 0.3s ease;
 }
 .last-container {
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
@@ -261,6 +269,9 @@ width: 48%;
     font-size: 18px;
     line-height: 30px;
 
+}
+.last-container img{
+    display: inline-block;
 }
 .last-container .sample {
 
@@ -323,7 +334,7 @@ padding-bottom: 97px;
     line-height: 60px;
 }
 .about {
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     margin: 40px auto;
 }
 .about p {
@@ -340,13 +351,18 @@ padding-bottom: 97px;
     padding-bottom: 100px;
 }
 .last{
-    max-width: 1400px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
     margin: 0 auto;
 }
 .last-container img{
-    max-width: clamp(300px, 100%, 500px);
+    width: min(100%, 500px);
+    max-width: 100%;
     height: auto;
   }
+.footer-container {
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
+    margin: 0 auto;
+}
   .coppyright {
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 1px;
@@ -363,9 +379,6 @@ padding-bottom: 97px;
 
 
 @media screen and (max-width: 768px) {
-    .header-container {
-        max-width: 540px;
-    }
     .avatarr-tittle h1 span {
         padding-bottom: 0;
         font-size: 14px;
@@ -383,16 +396,8 @@ padding-bottom: 97px;
         font-size: 14px;
     }
     .avatar {
-        max-width:  540px;
         flex-direction: column;
         gap: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .about {
-       max-width: 540px;    
-       padding-left: 10px;
-       padding-right: 10px;
     }
     .about p{
         font-size: 15px;
@@ -400,7 +405,8 @@ padding-bottom: 97px;
         margin-bottom: 30px;
     }
     .avatar img {
-        width: 540px;
+        width: 100%;
+        max-width: 540px;
         height: auto;
     }
     .avatarr-tittle {
@@ -409,7 +415,6 @@ padding-bottom: 97px;
     }
     .skills {
         flex-direction: column;
-        max-width: 540px;
     }
     .skills .core, .skills .other {
         width: 100%;
@@ -433,19 +438,13 @@ padding-bottom: 97px;
     }
     .experience {
         flex-direction: column;
-        max-width: 540px;
     }
     .experience-container {
         flex-direction: column;
 }
 .experience-container div {
-    width: 108%;
+    width: 100%;
 }
- .last{
-    max-width: 540px;
-     padding-left: 10px;
-       padding-right: 10px;
- }
   .last-container .content, .last-container .sample{
     width: 100%;
     padding-right: 0;
@@ -454,13 +453,12 @@ padding-bottom: 97px;
     font-size: 40px;
   }
   .footer-container {
-    max-width: 540px;
+    width: min(calc(100% - (var(--page-gap) * 2)), var(--container-max));
 }
 .dsg .name{
-    clip-path: inset(0 0 0 100%);
-    opacity: 0;
-    transition: all 0.9s ease;
-    transform: translateX(-100%);
-    transform-origin: left;
+    display: none;
+}
+.dsg .logo {
+    margin-right: 0;
 }
 }

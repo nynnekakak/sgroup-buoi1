@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            width: 200px;
+            background: #f5f5f7;
+            border-right: 1px solid #ddd;
+            padding: 16px;
+            min-height: 100vh;
+        }
+        .nav-item {
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+      
+        .nav-item:hover {
+            background: #e5e5e5;
+        }
+        .nav-item.active {
+            background: #e0e8ff;
+            color: #3355cc;
+            font-weight: 500;
+        }
+        .sub-item.active {
+            background: #d0e0ff;
+            color: #3355cc;
+            font-weight: 500;
+        }
+        .content {
+            padding: 32px;
+        }
+        .nav-item.has-sub::after {
+            content: ">";
+            margin-left: 50px;
+            font-size: 12px;
+            transition: all 0.15s ease;
+            display: inline-block;
+        }
+        .nav-item.has-sub.rota::after {
+          
+           transform: rotate(90deg);
+        }
+        .sub-menu {
+            display: none;
+        }
+        .sub-item{
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .sub-item:hover {
+            background: #e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="nav-item active" data-page="tong-quan">🏠 Tổng quan</div>
+        <div class="nav-item" data-page="bao-cao">📊 Báo cáo</div>
+        <div class="nav-item has-sub" id="nav-users">👥 Người dùng</div>
+        <div class="sub-menu" id="sub-users">
+            <div class="sub-item" data-page="ds-users">Danh sách</div>
+            <div class="sub-item" data-page="them-user">Thêm mới</div>
+            <div class="sub-item" data-page="phan-quyen">Phân quyền</div>
+        </div>
+
+        <div class="nav-item has-sub" id="nav-settings">⚙️ Cài đặt</div>
+        <div class="sub-menu" id="sub-settings">
+            <div class="sub-item" data-page="ca-nhan">Cá nhân</div>
+            <div class="sub-item" data-page="bao-mat">Bảo mật</div>
+        </div>
+    </aside>
+    <main class="content">
+    </main>
+</body>
+    <script>
+          
+            const sub_menus = document.querySelectorAll('.sub-menu');
+            const nav_items = document.querySelectorAll('.nav-item');
+            const sub_items = document.querySelectorAll('.sub-item');
+            const  content = document.querySelector('.content');     
+            const firt_page = document.querySelector('.nav-item.active');
+            if(firt_page) content.innerHTML = `<h1>${firt_page.textContent.trim()}</h1><p>Nội dung của ${firt_page.textContent.trim()}</p>`;
+            nav_items.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    nav_items.forEach(i => i.classList.remove('active'));
+                    sub_items.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    if(item.classList.contains('active')) content.innerHTML = `<h1>${item.textContent.trim()}</h1><p>Nội dung của ${item.textContent.trim()}</p>`;
+                    if (item.classList.contains('has-sub')) {
+                        const sub_menu = item.nextElementSibling;
+                        const isOpen = sub_menu.style.display === 'block';
+                    
+                        if (!isOpen) {
+                            sub_menu.style.display = 'block';
+                            item.classList.add('rota');
+                        }
+                        else {
+                            sub_menu.style.display = 'none';
+                            item.classList.remove('rota');
+                        }
+                    } else {
+                        sub_menus.forEach(m => m.style.display = 'none');
+                        document.querySelectorAll('.nav-item.has-sub').forEach(i => i.classList.remove('rota'));
+                    }
+                });
+            });
+            sub_items.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    nav_items.forEach(i => i.classList.remove('active'));
+                    sub_items.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    content.innerHTML = `<h1>${item.textContent.trim()}</h1><p>Nội dung của ${item.textContent.trim()}</p>`;
+                });
+            });
+    </script>
+</html>
