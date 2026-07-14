@@ -1,18 +1,32 @@
-const localNav = document.querySelector(".local-nav");
-const globalNav = document.querySelector(".global-nav");
-const globalItems = document.querySelectorAll(".global-item");
-const menuToggle = document.querySelector(".menu-toggle");
+const localNav = document.querySelector(".nav-local");
+const globalNav = document.querySelector(".nav-global");
+const globalItems = document.querySelectorAll(".item-global");
+const menuToggle = document.querySelector(".button-menu");
 const actionTriggers = [
-  ...document.querySelectorAll(".global-actions > .nav-icon"),
+  ...document.querySelectorAll(".group-global-actions > .nav-icon"),
 ].filter((trigger) =>
-  trigger.nextElementSibling?.classList.contains("action-submenu"),
+  trigger.nextElementSibling?.classList.contains("nav-action"),
 );
 const header = document.querySelector("header");
-const heroVideo = document.querySelector(".neo-hero-video");
+const heroVideo = document.querySelector(".js-hero-video");
 const motionVideos = document.querySelectorAll("[data-play-once]");
 
 let activeItem = null;
 let closeTimer = null;
+let mobileMenuView = "root";
+const mobileNavQuery = window.matchMedia("(max-width: 1068px)");
+
+const resetMobileNavigation = () => {
+  document.body.classList.remove("is-menu-open");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "Mo menu");
+  document.querySelector(".nav-mobile-overlay")?.classList.remove("is-detail");
+  document.querySelectorAll(".nav-mobile-panel.is-active").forEach((panel) => {
+    panel.classList.remove("is-active");
+  });
+  mobileMenuView = "root";
+  closeSubmenu();
+};
 
 const markPageReady = () => {
   if (document.body.classList.contains("is-page-ready")) {
@@ -38,9 +52,7 @@ if (heroVideo) {
 }
 
 const prepareMotionVideo = (video) => {
-  const shell = video.closest(
-    ".neo-motion-wrap, .neo-hero-media, .neo-design-card",
-  );
+  const shell = video.closest(".container-motion, .media-hero, .card-design");
 
   if (!shell) {
     return;
@@ -87,9 +99,7 @@ const playMotionVideo = (video) => {
     return;
   }
 
-  const shell = video.closest(
-    ".neo-motion-wrap, .neo-hero-media, .neo-design-card",
-  );
+  const shell = video.closest(".container-motion, .media-hero, .card-design");
   let started = false;
 
   video.dataset.motionWanted = "true";
@@ -105,7 +115,7 @@ const playMotionVideo = (video) => {
 
     try {
       video.currentTime = 0;
-    } catch { }
+    } catch {}
 
     video.play().catch(() => {
       video.dataset.played = "false";
@@ -169,28 +179,22 @@ window.addEventListener("scroll", () => {
   const globalNavHeight = globalNav ? globalNav.offsetHeight : 44;
 
   if (localNav && window.scrollY > globalNavHeight) {
-    localNav.classList.add("show");
-    globalNav.classList.add("hide");
+    localNav.classList.add("is-visible");
+    globalNav.classList.add("is-hidden");
   } else if (localNav) {
-    localNav.classList.remove("show");
-    globalNav.classList.remove("hide");
+    localNav.classList.remove("is-visible");
+    globalNav.classList.remove("is-hidden");
   }
 });
 
 menuToggle?.addEventListener("click", () => {
-  const isOpen = document.body.classList.toggle("mobile-menu-open");
+  const isOpen = document.body.classList.toggle("is-menu-open");
   menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Dong menu" : "Mo menu");
 
   if (!isOpen) {
-    closeSubmenu();
+    resetMobileNavigation();
   }
-});
-
-document.querySelectorAll(".global-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    document.body.classList.remove("mobile-menu-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-  });
 });
 
 const clearCloseTimer = () => {
@@ -202,12 +206,12 @@ const clearCloseTimer = () => {
 
 const getActiveSubmenu = () =>
   activeItem?.querySelector(".nav-submenu") ||
-  (activeItem?.nextElementSibling?.classList.contains("action-submenu")
+  (activeItem?.nextElementSibling?.classList.contains("nav-action")
     ? activeItem.nextElementSibling
     : null);
 
 const isActionTrigger = (item) =>
-  item?.nextElementSibling?.classList.contains("action-submenu");
+  item?.nextElementSibling?.classList.contains("nav-action");
 
 const isInSubmenuZone = (target) => {
   const activeSubmenu = getActiveSubmenu();
@@ -228,7 +232,7 @@ const openSubmenu = (item) => {
 
   activeItem = item;
   activeItem.classList.add("is-active");
-  document.body.classList.add("global-submenu-open");
+  document.body.classList.add("is-submenu-open");
 };
 
 const closeSubmenu = () => {
@@ -239,8 +243,80 @@ const closeSubmenu = () => {
     activeItem = null;
   }
 
-  document.body.classList.remove("global-submenu-open");
+  document.body.classList.remove("is-submenu-open");
 };
+
+const buildMobileNavigation = () => {
+  if (!globalNav || document.querySelector(".nav-mobile-overlay")) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "nav-mobile-overlay";
+  overlay.setAttribute("aria-label", "Menu Apple");
+
+  const rootView = document.createElement("div");
+  rootView.className = "nav-mobile-root";
+  const rootList = document.createElement("ul");
+
+  globalItems.forEach((item, index) => {
+    const sourceLink = item.querySelector(":scope > a");
+    const sourceContent = item.querySelector(".content-submenu");
+    if (!sourceLink || !sourceContent) return;
+
+    const listItem = document.createElement("li");
+    const trigger = document.createElement("button");
+    const panelId = `mobile-nav-panel-${index}`;
+    trigger.type = "button";
+    trigger.textContent = sourceLink.textContent.trim();
+    trigger.setAttribute("aria-controls", panelId);
+    trigger.setAttribute("aria-expanded", "false");
+    listItem.append(trigger);
+    rootList.append(listItem);
+
+    const panel = document.createElement("section");
+    panel.className = "nav-mobile-panel";
+    panel.id = panelId;
+    panel.setAttribute("aria-hidden", "true");
+
+    const back = document.createElement("button");
+    back.className = "nav-mobile-back";
+    back.type = "button";
+    back.setAttribute("aria-label", "Quay lai menu chinh");
+    back.innerHTML = '<span aria-hidden="true">&#8249;</span>';
+
+    const content = sourceContent.cloneNode(true);
+    content.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", resetMobileNavigation);
+    });
+
+    panel.append(back, content);
+    overlay.append(panel);
+
+    trigger.addEventListener("click", () => {
+      mobileMenuView = panelId;
+      overlay.classList.add("is-detail");
+      panel.classList.add("is-active");
+      panel.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
+      panel.scrollTop = 0;
+      back.focus({ preventScroll: true });
+    });
+
+    back.addEventListener("click", () => {
+      mobileMenuView = "root";
+      overlay.classList.remove("is-detail");
+      panel.classList.remove("is-active");
+      panel.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.focus({ preventScroll: true });
+    });
+  });
+
+  rootView.append(rootList);
+  overlay.prepend(rootView);
+  globalNav.append(overlay);
+};
+
+buildMobileNavigation();
 
 const closeSubmenuSoon = () => {
   clearCloseTimer();
@@ -249,10 +325,12 @@ const closeSubmenuSoon = () => {
 
 globalItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
+    if (mobileNavQuery.matches) return;
     openSubmenu(item);
   });
 
   item.addEventListener("focusin", () => {
+    if (mobileNavQuery.matches) return;
     openSubmenu(item);
   });
 
@@ -312,11 +390,17 @@ document.addEventListener("pointerdown", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    document.body.classList.remove("mobile-menu-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-    closeSubmenu();
+    if (mobileNavQuery.matches && mobileMenuView !== "root") {
+      document
+        .querySelector(".nav-mobile-panel.is-active .nav-mobile-back")
+        ?.click();
+    } else {
+      resetMobileNavigation();
+    }
   }
 });
+
+mobileNavQuery.addEventListener("change", resetMobileNavigation);
 
 document.querySelectorAll("[data-slider]").forEach((slider) => {
   const sliderName = slider.dataset.slider;
@@ -328,9 +412,9 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
   );
   const sliderSection = slider.closest("section");
   const progressDots = sliderSection?.querySelectorAll(
-    ".neo-progress-controls > span",
+    ".group-progress-controls > span",
   );
-  const playButton = sliderSection?.querySelector(".neo-play-control");
+  const playButton = sliderSection?.querySelector(".button-play-overview");
   let activeSlideIndex = 0;
   let sliderTimer = null;
   let highlightLoopRunning = false;
@@ -421,7 +505,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
   };
 
   const replayHighlightVideos = () => {
-    const videos = slider.querySelectorAll(".neo-motion-video");
+    const videos = slider.querySelectorAll(".video-motion");
 
     if (!videos.length) {
       return;
@@ -431,7 +515,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
     playButton?.setAttribute("aria-label", "Phát lại video điểm nổi bật");
 
     videos.forEach((video) => {
-      const shell = video.closest(".neo-motion-wrap");
+      const shell = video.closest(".container-motion");
 
       shell?.classList.remove("is-video-ended");
       shell?.classList.remove("is-video-error");
@@ -455,7 +539,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
   };
 
   const getHighlightVideos = () => [
-    ...slider.querySelectorAll(".neo-motion-video"),
+    ...slider.querySelectorAll(".video-motion"),
   ];
 
   const stopHighlightVideoLoop = () => {
@@ -485,7 +569,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
 
     const nextIndex = (index + videos.length) % videos.length;
     const video = videos[nextIndex];
-    const shell = video.closest(".neo-motion-wrap");
+    const shell = video.closest(".container-motion");
     const slideIndex = [...slider.children].findIndex((slide) =>
       slide.contains(video),
     );
@@ -556,7 +640,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
     playButton?.classList.remove("is-running");
     playButton?.setAttribute("aria-label", "Phát lại video điểm nổi bật");
 
-    slider.querySelectorAll(".neo-motion-video").forEach((video) => {
+    slider.querySelectorAll(".video-motion").forEach((video) => {
       video.onended = null;
       video.pause();
     });
@@ -572,8 +656,8 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
 
     const nextIndex = (index + slides.length) % slides.length;
     const slide = slides[nextIndex];
-    const video = slide.querySelector(".neo-motion-video");
-    const shell = video?.closest(".neo-motion-wrap");
+    const video = slide.querySelector(".video-motion");
+    const shell = video?.closest(".container-motion");
 
     highlightLoopIndex = nextIndex;
     activeSlideIndex = nextIndex;
@@ -586,7 +670,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
     window.clearTimeout(sliderTimer);
     sliderTimer = null;
 
-    slider.querySelectorAll(".neo-motion-video").forEach((otherVideo) => {
+    slider.querySelectorAll(".video-motion").forEach((otherVideo) => {
       if (otherVideo !== video) {
         otherVideo.onended = null;
         otherVideo.pause();
@@ -655,7 +739,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
     scrollSlider(1);
   });
   playButton?.addEventListener("click", () => {
-    if (sliderName === "neo-highlights") {
+    if (sliderName === "section-highlights") {
       toggleHighlightSlideLoop();
       return;
     }
@@ -686,12 +770,12 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
   window.addEventListener("resize", updateSliderProgress, { passive: true });
   updateSliderProgress();
 
-  if (sliderName === "neo-highlights") {
+  if (sliderName === "section-highlights") {
     playButton?.setAttribute("aria-label", "Phát lại video điểm nổi bật");
   }
 });
 
-const revealItems = document.querySelectorAll(".reveal");
+const revealItems = document.querySelectorAll(".is-reveal-ready");
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
@@ -798,14 +882,14 @@ const closerItems = {
 };
 
 document
-  .querySelectorAll(".neo-closer-card[data-legacy-closer]")
+  .querySelectorAll(".card-closer[data-legacy-closer]")
   .forEach((closerCard) => {
-    const tabGroup = closerCard.querySelector(".neo-closer-tabs");
+    const tabGroup = closerCard.querySelector(".section-closer-tabs");
     const buttons = tabGroup?.querySelectorAll("[data-closer-item]");
-    const detail = closerCard.querySelector(".neo-closer-detail");
-    const visual = closerCard.querySelector(".neo-closer-visual");
+    const detail = closerCard.querySelector(".section-closer-detail");
+    const visual = closerCard.querySelector(".image-closer");
     const image = closerCard.querySelector("#neo-closer-image");
-    const closeButton = closerCard.querySelector(".neo-closer-close");
+    const closeButton = closerCard.querySelector(".section-closer-close");
 
     const setCloserItem = (key, expand = true) => {
       const item = closerItems[key];
@@ -823,15 +907,16 @@ document
       closerCard.classList.toggle("is-expanded", expand);
       detail.innerHTML = `
       <p><strong>${item.title}</strong> ${item.text}</p>
-      ${item.colors
-          ? `<div class="neo-color-dots" aria-label="Màu sắc của MacBook Neo">${item.colors
-            .map(
-              (color, index) =>
-                `<span class="${index === 0 ? "is-active" : ""}" style="background:${color}"></span>`,
-            )
-            .join("")}</div>`
+      ${
+        item.colors
+          ? `<div class="icon-color-dots" aria-label="Màu sắc của MacBook Neo">${item.colors
+              .map(
+                (color, index) =>
+                  `<span class="${index === 0 ? "is-active" : ""}" style="background:${color}"></span>`,
+              )
+              .join("")}</div>`
           : ""
-        }
+      }
     `;
 
       visual.classList.add("is-changing");
@@ -850,7 +935,9 @@ document
 
     closeButton?.addEventListener("click", () => {
       closerCard.classList.remove("is-expanded");
-      buttons?.forEach((button) => button.setAttribute("aria-expanded", "false"));
+      buttons?.forEach((button) =>
+        button.setAttribute("aria-expanded", "false"),
+      );
     });
 
     setCloserItem("colors", false);
@@ -861,7 +948,9 @@ const neoCloserItems = {
     title: "Màu sắc.",
     text: "Dòng sản phẩm MacBook nhiều màu sắc nhất từ trước đến nay. Chọn trong số bốn màu tuyệt đẹp với bàn phím cùng tông màu.",
     video:
-      "https://www.apple.com/105/media/us/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/highlights-colors/large.mp4",
+      "https://www.apple.com/105/media/us/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/pv-hero/large.mp4",
+    startImage:
+      "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_hero_startframe__eordlikidzwy_large_2x.jpg",
     image:
       "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_hero_endframe__czpdxe2dmawm_large_2x.jpg",
     alt: "MacBook Neo màu xanh indigo mở màn hình trừu tượng",
@@ -901,8 +990,6 @@ const neoCloserItems = {
   durable: {
     title: "Thiết kế bền bỉ.",
     text: "MacBook Neo được chế tạo với vỏ nhôm tái chế bền chắc giúp thiết bị sở hữu 60% vật liệu tái chế tính theo trọng lượng.",
-    video:
-      "https://www.apple.com/105/media/us/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/design/xlarge.webm",
     image:
       "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_durable__d5xca9ckjjwy_large_2x.jpg",
     alt: "MacBook Neo được sử dụng trong phòng tập thể thao",
@@ -912,8 +999,6 @@ const neoCloserItems = {
   display: {
     title: "Màn hình.",
     text: "Với độ phân giải vượt trội và độ sáng 500 nit, màn hình Liquid Retina 13 inch giúp ảnh, trang web và video trở nên sống động.",
-    video:
-      "https://www.apple.com/105/media/ww/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/highlights-display/large.mp4",
     image:
       "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_display__itqbv51zruy6_large_2x.jpg",
     alt: "Màn hình MacBook Neo hiển thị nội dung màu sắc",
@@ -922,6 +1007,10 @@ const neoCloserItems = {
   keyboard: {
     title: "Bàn phím và bàn di.",
     text: "Magic Keyboard đem lại trải nghiệm gõ phím thoải mái và chính xác. Bàn di Multi-Touch lớn cho phép chạm, chụm, vuốt và bấm dễ dàng.",
+    video:
+      "https://www.apple.com/105/media/us/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/pv-keyboard/large.mp4",
+    startImage:
+      "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_keyboard_startframe__fr7rxovk4bmi_large_2x.jpg",
     image:
       "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_keyboard_endframe__bsph9ace3meq_large_2x.jpg",
     alt: "Bàn phím và bàn di của MacBook Neo",
@@ -947,6 +1036,10 @@ const neoCloserItems = {
   audio: {
     title: "Micrô và loa.",
     text: "Hai loa hướng ngang mang đến âm thanh sống động, micrô kép giúp tách biệt và tăng cường độ trong trẻo cho giọng nói.",
+    video:
+      "https://www.apple.com/105/media/us/macbook-neo/2026/eee281c9-06d4-45d9-9a37-ef16ad413279/anim/pv-audio/large.mp4",
+    startImage:
+      "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_audio_startframe__eyyv3ns7eqie_large_2x.jpg",
     image:
       "https://www.apple.com/v/macbook-neo/b/images/overview/product-viewer/pv_audio_endframe__cybgz641coae_large_2x.jpg",
     alt: "Âm thanh trên MacBook Neo",
@@ -983,14 +1076,14 @@ Object.values(neoCloserItems).forEach((item) => {
   }
 });
 
-document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
+document.querySelectorAll(".card-closer").forEach((closerCard) => {
   const buttons = closerCard.querySelectorAll("[data-closer-item]");
-  const detail = closerCard.querySelector(".neo-closer-detail");
-  const visual = closerCard.querySelector(".neo-closer-visual");
+  const detail = closerCard.querySelector(".section-closer-detail");
+  const visual = closerCard.querySelector(".image-closer");
   const image = closerCard.querySelector("#neo-closer-image");
   const video = closerCard.querySelector("#neo-closer-video");
   const caption = visual?.querySelector("figcaption");
-  const closeButton = closerCard.querySelector(".neo-closer-close");
+  const closeButton = closerCard.querySelector(".section-closer-close");
   const prevButton = closerCard.querySelector("[data-closer-prev]");
   const nextButton = closerCard.querySelector("[data-closer-next]");
   const closerKeys = Object.keys(neoCloserItems);
@@ -1014,11 +1107,21 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
     window.clearTimeout(closerMotionTimer);
     clearMotionClasses();
 
-    if (video && !options.videoSource) {
+    [image, video].filter(Boolean).forEach((media) => {
+      media.getAnimations?.().forEach((animation) => animation.cancel());
+      media.style.removeProperty("opacity");
+      media.style.removeProperty("transform");
+      media.style.removeProperty("filter");
+    });
+
+    visual?.classList.remove("is-video-active");
+    image?.classList.remove("is-fallback-hidden");
+
+    if (video) {
       video.pause();
       video.removeAttribute("src");
       video.load();
-      visual?.classList.remove("is-video-active");
+      video.hidden = true;
     }
 
     if (options.startSource && image) {
@@ -1032,7 +1135,9 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
     );
 
     if (options.direction) {
-      closerCard.classList.add(options.direction > 0 ? "is-step-down" : "is-step-up");
+      closerCard.classList.add(
+        options.direction > 0 ? "is-step-down" : "is-step-up",
+      );
     }
 
     const animateCurrentImage = () => {
@@ -1044,44 +1149,48 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
 
       media.getAnimations().forEach((animation) => animation.cancel());
 
-      const distance = options.colorPick ? 92 : options.direction ? options.direction * 86 : 48;
+      const distance = options.colorPick
+        ? 92
+        : options.direction
+          ? options.direction * 86
+          : 48;
       const keyframes = options.colorPick
         ? [
-          {
-            opacity: 0,
-            transform: `translateX(${distance}px) scale(0.96)`,
-            filter: "blur(14px) saturate(0.78)",
-          },
-          {
-            opacity: 1,
-            transform: "translateX(-8px) scale(1.012)",
-            filter: "blur(0) saturate(1.08)",
-            offset: 0.72,
-          },
-          {
-            opacity: 1,
-            transform: "translateX(0) scale(1)",
-            filter: "blur(0) saturate(1)",
-          },
-        ]
+            {
+              opacity: 0,
+              transform: `translateX(${distance}px) scale(0.96)`,
+              filter: "blur(14px) saturate(0.78)",
+            },
+            {
+              opacity: 1,
+              transform: "translateX(-8px) scale(1.012)",
+              filter: "blur(0) saturate(1.08)",
+              offset: 0.72,
+            },
+            {
+              opacity: 1,
+              transform: "translateX(0) scale(1)",
+              filter: "blur(0) saturate(1)",
+            },
+          ]
         : [
-          {
-            opacity: 0,
-            transform: `translateY(${options.direction ? distance : 34}px) scale(1.035)`,
-            filter: "blur(12px)",
-          },
-          {
-            opacity: 1,
-            transform: "translateY(-6px) scale(1.01)",
-            filter: "blur(0)",
-            offset: 0.68,
-          },
-          {
-            opacity: 1,
-            transform: "translateY(0) scale(1)",
-            filter: "blur(0)",
-          },
-        ];
+            {
+              opacity: 0,
+              transform: `translateY(${options.direction ? distance : 34}px) scale(1.035)`,
+              filter: "blur(12px)",
+            },
+            {
+              opacity: 1,
+              transform: "translateY(-6px) scale(1.01)",
+              filter: "blur(0)",
+              offset: 0.68,
+            },
+            {
+              opacity: 1,
+              transform: "translateY(0) scale(1)",
+              filter: "blur(0)",
+            },
+          ];
 
       media.animate(keyframes, {
         duration: options.colorPick ? 760 : 680,
@@ -1095,35 +1204,58 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
         return;
       }
 
+      if (image) {
+        image.src = source;
+        image.alt = alt;
+        image.hidden = false;
+        image.classList.remove("is-fallback-hidden");
+      }
+
       if (options.videoSource && video) {
-        image?.classList.add("is-fallback-hidden");
+        video.hidden = false;
         video.src = options.videoSource;
         video.poster = source;
         video.currentTime = 0;
-        video.loop = true;
+        video.loop = false;
         video.muted = true;
         video.playsInline = true;
         video.setAttribute("muted", "");
         video.setAttribute("playsinline", "");
-        visual?.classList.add("is-video-active");
+        const showVideo = () => {
+          if (motionId !== closerMotionId) return;
+          visual?.classList.add("is-video-active");
+          image?.classList.add("is-fallback-hidden");
+          window.requestAnimationFrame(animateCurrentImage);
+        };
+
+        video.addEventListener("playing", showVideo, { once: true });
+        video.addEventListener(
+          "error",
+          () => {
+            if (motionId !== closerMotionId) return;
+            video.hidden = true;
+            visual?.classList.remove("is-video-active");
+            image?.classList.remove("is-fallback-hidden");
+          },
+          { once: true },
+        );
         video.load();
         video.play().catch(() => {
+          video.hidden = true;
           visual?.classList.remove("is-video-active");
           image?.classList.remove("is-fallback-hidden");
+          window.requestAnimationFrame(animateCurrentImage);
         });
       } else {
+        if (video) video.hidden = true;
         image?.classList.remove("is-fallback-hidden");
+        window.requestAnimationFrame(animateCurrentImage);
       }
 
-      if (image) {
-        image.src = source;
-        image.alt = alt;
-      }
       if (caption) {
         caption.textContent = text;
       }
       visual?.classList.remove("is-changing");
-      window.requestAnimationFrame(animateCurrentImage);
     };
 
     const decodedImage = new Image();
@@ -1143,7 +1275,7 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
   const updateIcons = (activeKey, expanded) => {
     buttons.forEach((button) => {
       const isActive = button.dataset.closerItem === activeKey;
-      const icon = button.querySelector("span:not(.neo-swatch)");
+      const icon = button.querySelector("span:not(.icon-swatch)");
 
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-expanded", String(isActive && expanded));
@@ -1155,7 +1287,7 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
   };
 
   const updateColorSwatch = (color) => {
-    const swatch = closerCard.querySelector(".neo-swatch");
+    const swatch = closerCard.querySelector(".icon-swatch");
 
     if (swatch) {
       swatch.style.background = color || "";
@@ -1165,7 +1297,12 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
   const getCloserCopy = (item, activeColor) =>
     `${item.text}${activeColor ? ` Hình ảnh sản phẩm màu ${activeColor.name}.` : ""}`;
 
-  const renderCloserItem = (key, expanded = true, colorIndex = 0, options = {}) => {
+  const renderCloserItem = (
+    key,
+    expanded = true,
+    colorIndex = 0,
+    options = {},
+  ) => {
     const item = neoCloserItems[key];
 
     if (!item || !detail || !image || !visual) {
@@ -1194,14 +1331,15 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
 
     detail.innerHTML = `
       <p data-closer-copy><strong>${item.title}</strong> ${getCloserCopy(item, activeColor)}</p>
-      ${item.colors
-        ? `<div class="neo-color-dots neo-color-picker" aria-label="Màu sắc của MacBook Neo">${item.colors
-          .map(
-            (color, index) =>
-              `<button type="button" class="${index === selectedColorIndex ? "is-active" : ""}" style="background:${color.color}" data-closer-color="${index}" aria-label="${color.name}"></button>`,
-          )
-          .join("")}</div>`
-        : ""
+      ${
+        item.colors
+          ? `<div class="icon-color-dots group-picker-color" aria-label="Màu sắc của MacBook Neo">${item.colors
+              .map(
+                (color, index) =>
+                  `<button type="button" class="${index === selectedColorIndex ? "is-active" : ""}" style="background:${color.color}" data-closer-color="${index}" aria-label="${color.name}"></button>`,
+              )
+              .join("")}</div>`
+          : ""
       }
     `;
 
@@ -1213,8 +1351,12 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
         : item.caption,
       {
         direction: options.direction,
-        startSource: expanded && !activeColor ? item.startImage : null,
-        videoSource: expanded && !activeColor ? item.video : null,
+        startSource:
+          !activeColor && (expanded || key === "colors")
+            ? item.startImage
+            : null,
+        videoSource:
+          !activeColor && (expanded || key === "colors") ? item.video : null,
       },
     );
 
@@ -1234,7 +1376,10 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
             button.classList.toggle("is-active", button === colorButton),
           );
         colorButton.classList.add("is-picking");
-        window.setTimeout(() => colorButton.classList.remove("is-picking"), 520);
+        window.setTimeout(
+          () => colorButton.classList.remove("is-picking"),
+          520,
+        );
         const copy = detail.querySelector("[data-closer-copy]");
 
         if (copy) {
@@ -1289,12 +1434,12 @@ document.querySelectorAll(".neo-closer-card").forEach((closerCard) => {
   renderCloserItem("colors", false);
 });
 
-document.querySelectorAll(".play-button").forEach((button) => {
+document.querySelectorAll(".button-play-legacy").forEach((button) => {
   button.addEventListener("click", (event) => {
     const media = event.currentTarget.closest(
-      ".neo-story-media, .neo-design-card, .sample-love-media, .intro-visual",
+      ".media-story, .card-design, .media-love, .image-intro",
     );
-    const video = media?.querySelector(".neo-motion-video");
+    const video = media?.querySelector(".video-motion");
 
     if (!media || !video) {
       media?.classList.toggle("is-playing");
@@ -1315,7 +1460,7 @@ document.querySelectorAll(".play-button").forEach((button) => {
 
     try {
       video.currentTime = 0;
-    } catch { }
+    } catch {}
 
     video.play().catch(() => {
       media.classList.add("is-video-error");
