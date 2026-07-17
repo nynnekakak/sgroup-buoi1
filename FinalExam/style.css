@@ -43,7 +43,7 @@ a {
   text-decoration: none;
 }
 
-header {
+body > header {
   position: sticky;
   top: 0;
   z-index: 9000;
@@ -3439,7 +3439,7 @@ body.is-submenu-open .nav-scrim {
 }
 
 @media (max-width: 1068px) {
-  header {
+  body > header {
     height: 44px;
   }
 
@@ -10370,5 +10370,262 @@ body.is-page-ready .content-hero-overview.is-reveal-ready.is-visible {
   .content-page .section-closer-detail {
     animation: none !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Product-story responsive system: Apple breakpoints (medium 1068 / small 734). */
+@media (max-width: 1068px) {
+  .content-page .section-product-story .header-story,
+  .content-page .section-newmac .header-story {
+    position: relative;
+    top: auto;
+    z-index: auto;
+    height: auto;
+    min-height: 0;
+    display: block;
+  }
+
+  .content-page .section-product-story .header-story h2,
+  .content-page .section-newmac .header-story h2 {
+    font-size: clamp(48px, 7vw, 60px);
+    line-height: 0.98;
+  }
+
+  .content-page
+    .section-product-story
+    .header-story
+    p:not(.title-eyebrow-overview),
+  .content-page
+    .section-newmac
+    .header-story
+    p:not(.title-eyebrow-overview) {
+    max-width: 700px;
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.38;
+  }
+
+  .content-page .section-performance .header-story,
+  .content-page .section-display .header-story {
+    width: min(700px, 100%);
+  }
+
+  .content-page .group-story-stack,
+  .content-page .card-story,
+  .content-page .card-story > div,
+  .content-page .card-story > img {
+    min-width: 0;
+  }
+
+  .content-page .card-story {
+    align-items: center;
+  }
+
+  .content-page .card-story img,
+  .content-page .container-lifestyle img,
+  .content-page .media-full img,
+  .content-page .media-newmac-hero img,
+  .content-page .media-newmac-hero video {
+    height: auto;
+  }
+
+  .content-page .section-display-specs {
+    align-items: start;
+  }
+
+  .content-page .section-ai-overview .header-story,
+  .content-page .section-continuity .header-story,
+  .content-page .section-newmac .header-story {
+    width: min(760px, calc(100% - 48px));
+  }
+
+  .content-page .section-ai-overview .media-full,
+  .content-page .section-newmac .media-newmac-hero {
+    width: min(760px, calc(100% - 48px));
+  }
+}
+
+@media (max-width: 734px) {
+  .content-page .section-performance,
+  .content-page .section-display {
+    width: 100%;
+    padding: 64px 20px 78px;
+  }
+
+  .content-page .section-product-story .header-story,
+  .content-page .section-newmac .header-story,
+  .content-page .section-ai-overview .header-story,
+  .content-page .section-continuity .header-story {
+    width: 100%;
+    margin-bottom: 44px;
+    padding-inline: 0;
+  }
+
+  .content-page .section-product-story .title-eyebrow-overview,
+  .content-page .section-newmac .title-eyebrow-overview {
+    margin-bottom: 8px;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .content-page .section-product-story .header-story h2,
+  .content-page .section-display .header-story h2,
+  .content-page .section-ai-overview .header-story h2,
+  .content-page .section-continuity .header-story h2,
+  .content-page .section-newmac .header-story h2 {
+    font-size: clamp(40px, 11.5vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .content-page
+    .section-product-story
+    .header-story
+    p:not(.title-eyebrow-overview),
+  .content-page
+    .section-newmac
+    .header-story
+    p:not(.title-eyebrow-overview),
+  .content-page
+    .section-continuity
+    .header-story
+    p:not(.title-eyebrow-overview) {
+    width: 100%;
+    max-width: 540px;
+    margin: 18px auto 0;
+    font-size: 16px;
+    line-height: 1.42;
+  }
+
+  .content-page .group-story-stack {
+    gap: 64px;
+  }
+
+  .content-page .card-story,
+  .content-page .card-story:nth-child(even) {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .content-page .card-story > img,
+  .content-page .card-story > div,
+  .content-page .card-story:nth-child(even) > img,
+  .content-page .card-story:nth-child(even) > div {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .content-page .card-story > img {
+    order: 1;
+  }
+
+  .content-page .card-story > div {
+    order: 2;
+  }
+
+  .content-page .card-story h3,
+  .content-page .card-story p {
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .content-page .section-performance-callout p {
+    font-size: clamp(25px, 7.5vw, 32px);
+    line-height: 1.16;
+  }
+
+  .content-page .container-lifestyle {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .content-page .section-display-specs {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    text-align: center;
+  }
+
+  .content-page .section-display-stories .content-audio,
+  .content-page .background-audio-ai-gradient .content-audio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .content-page .section-ai-overview,
+  .content-page .section-continuity,
+  .content-page .section-newmac {
+    overflow: hidden;
+  }
+
+  .content-page .section-ai-overview .header-story,
+  .content-page .section-ai-overview .media-full,
+  .content-page .section-continuity .header-story,
+  .content-page .section-newmac .header-story,
+  .content-page .section-newmac .media-newmac-hero {
+    width: calc(100% - 40px);
+  }
+
+  .content-page .section-newmac .media-newmac-hero {
+    margin-top: 0;
+  }
+
+  .content-page .section-macos-hero {
+    min-height: 620px;
+  }
+
+  .content-page .content-macos-hero {
+    width: calc(100% - 40px);
+  }
+
+  .content-page .content-macos-hero h2 {
+    font-size: clamp(40px, 11.5vw, 48px);
+  }
+
+  .content-page .text-macos-desc-panel {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .content-page .section-continuity-hero,
+  .content-page .section-continuity-tabs {
+    width: calc(100% - 40px);
+  }
+}
+
+/* Prevent decoded video edges from showing as a black frame. */
+.content-page .media-hero {
+  overflow: hidden;
+  contain: paint;
+}
+
+.content-page .media-hero .video-hero {
+  inset: -2px;
+  width: calc(100% + 4px);
+  max-width: none;
+  height: calc(100% + 4px);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 734px) {
+  .content-page .card-design {
+    overflow: hidden;
+    contain: paint;
+  }
+
+  .content-page .card-design .video-design,
+  .content-page .card-design .section-design-end {
+    object-fit: cover;
+  }
+
+  .content-page .card-design .video-design {
+    inset: -2px;
+    width: calc(100% + 4px);
+    max-width: none;
+    height: calc(100% + 4px);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 }
