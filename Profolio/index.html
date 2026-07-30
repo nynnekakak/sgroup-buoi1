@@ -1,0 +1,1694 @@
+<!doctype html>
+<html lang="en" class="no-js" data-motion="full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050c17" />
+    <meta
+      name="description"
+      content="Portfolio of Trần Ngọc Tiến, a full-stack developer building Flutter and React interfaces with Node.js APIs and SQL data."
+    />
+    <meta name="author" content="Trần Ngọc Tiến" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Trần Ngọc Tiến — Student Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack student projects built with Flutter, React, Node.js APIs and SQL data."
+    />
+    <meta property="og:image" content="assets/images/og-cover.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Trần Ngọc Tiến — Student Software Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Student portfolio featuring Flutter, React and Node.js full-stack projects."
+    />
+    <meta name="twitter:image" content="assets/images/og-cover.jpg" />
+
+    <title>Trần Ngọc Tiến — Student Software Developer</title>
+
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260730-mobile-menu-panel" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Trần Ngọc Tiến",
+        "jobTitle": "Student Software Developer",
+        "email": "mailto:ngoctien20022005@gmail.com",
+        "url": "https://github.com/TienTrn05",
+        "knowsAbout": ["Flutter", "React", "Node.js", "REST APIs", "SQL"],
+        "sameAs": [
+          "https://github.com/TienTrn05",
+          "https://www.linkedin.com/in/tr%E1%BA%A7n-nin-7b0bba355/",
+          "https://www.facebook.com/nin.tran0205"
+        ],
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Danang University of Science and Technology"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav-container" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Tien — Home">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-block brand-block-purple"></span>
+            <span class="brand-block brand-block-shadow"></span>
+            <span class="brand-block brand-block-yellow"></span>
+          </span>
+          <span class="brand-name">Tien.</span>
+        </a>
+
+        <div class="desktop-nav">
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link is-active" href="#home" data-nav-link>Home</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#about" data-nav-link>About Me</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#work" data-nav-link>Projects</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#stack" data-nav-link>Skills</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#building" data-nav-link>Learning</a>
+            </li>
+          </ul>
+          <a class="nav-cta" href="#contact">Let's Chat</a>
+        </div>
+
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation"
+          data-menu-button
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        <ul>
+          <li>
+            <a href="#home" data-mobile-link>Home</a>
+          </li>
+          <li>
+            <a href="#about" data-mobile-link>About Me</a>
+          </li>
+          <li>
+            <a href="#work" data-mobile-link>Projects</a>
+          </li>
+          <li>
+            <a href="#stack" data-mobile-link>Skills</a>
+          </li>
+          <li>
+            <a href="#building" data-mobile-link>Learning</a>
+          </li>
+          <li>
+            <a href="#contact" data-mobile-link>Let's Chat</a>
+          </li>
+        </ul>
+      </div>
+      <span
+        class="header-progress"
+        data-header-progress
+        aria-hidden="true"
+      ></span>
+    </header>
+
+    <aside class="site-tools" aria-label="Display settings">
+      <button
+        class="tool-button tool-motion"
+        type="button"
+        data-motion-toggle
+        aria-label="Turn motion effects off"
+      >
+        <i data-lucide="sparkles" aria-hidden="true"></i>
+        <span data-motion-label>Motion On</span>
+      </button>
+      <button
+        class="tool-button tool-theme"
+        type="button"
+        data-theme-toggle
+        aria-label="Switch to dark mode"
+      >
+        <i data-lucide="moon" aria-hidden="true"></i>
+        <span data-theme-label>Dark</span>
+      </button>
+    </aside>
+
+    <main id="main-content">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-grid">
+          <div class="hero-copy" data-reveal>
+            <p class="hero-eyebrow">Hi! I'm Trần Ngọc Tiến</p>
+            <h1 id="hero-title">Full-stack Developer</h1>
+            <p class="hero-description">
+              I build full-stack student products—from Flutter and React
+              interfaces to Node.js REST APIs, authentication and SQL data. I'm
+              looking for an internship where I can contribute and grow across
+              the complete product flow.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="assets/Tranngoctien_resume.pdf"
+                download
+              >
+                <i data-lucide="file-down" aria-hidden="true"></i>
+                <span>Download CV</span>
+              </a>
+              <a class="button button-outline" href="#work">
+                <i data-lucide="arrow-down-right" aria-hidden="true"></i>
+                <span>Explore My Work</span>
+              </a>
+            </div>
+
+            <aside
+              class="candidate-summary"
+              aria-label="Candidate availability and role preferences"
+            >
+              <div class="candidate-status">
+                <span class="candidate-status-dot" aria-hidden="true"></span>
+                <span>Open to internships </span>
+              </div>
+
+              <div class="candidate-details">
+                <div class="candidate-detail">
+                  <i data-lucide="graduation-cap" aria-hidden="true"></i>
+                  <div>
+                    <span>Current level</span>
+                    <strong>Fourth-year IT student</strong>
+                  </div>
+                </div>
+                <div class="candidate-detail">
+                  <i data-lucide="monitor-smartphone" aria-hidden="true"></i>
+                  <div>
+                    <span>Frontend</span>
+                    <strong>React · Flutter</strong>
+                  </div>
+                </div>
+                <div class="candidate-detail">
+                  <i data-lucide="server" aria-hidden="true"></i>
+                  <div>
+                    <span>Backend &amp; data</span>
+                    <strong>Node.js · REST APIs · SQL</strong>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="hero-media" data-hero-media data-reveal>
+            <img
+              src="assets/images/Tien.jpg"
+              width="1122"
+              height="1402"
+              alt="Portrait of Trần Ngọc Tiến"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-about"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div class="container" data-reveal>
+          <div class="section-badge">
+            <span aria-hidden="true">✦</span><span>About Me</span>
+          </div>
+          <h2 class="about-title" id="about-title">Hi! I'm Trần Ngọc Tiến</h2>
+          <p class="about-copy">
+            I'm a fourth-year Information Technology student at Danang
+            University of Science and Technology. Through coursework and
+            self-directed projects, I build Flutter and React interfaces and
+            connect them to Node.js services, REST APIs and SQL-backed data.
+            Flutter remains my strongest practical area, while Node.js is my
+            backend focus as I deepen my system-design foundations.
+          </p>
+
+          <dl class="about-facts">
+            <div>
+              <dt>Education</dt>
+              <dd>Fourth-year IT student</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Full-stack</dd>
+            </div>
+            <div>
+              <dt>Strongest area</dt>
+              <dd>Flutter & mobile UI</dd>
+            </div>
+            <div>
+              <dt>Backend focus</dt>
+              <dd>Node.js &amp; REST APIs</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Da Nang, Vietnam</dd>
+            </div>
+            <div>
+              <dt>Social Media</dt>
+              <dd class="social-list">
+                <a
+                  href="https://github.com/TienTrn05"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  ><i data-lucide="github" aria-hidden="true"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/tr%E1%BA%A7n-nin-7b0bba355/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  ><i data-lucide="linkedin" aria-hidden="true"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/nin.tran0205"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  ><i data-lucide="facebook" aria-hidden="true"></i
+                ></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section
+        class="section section-services section-skills-compact"
+        id="stack"
+        aria-labelledby="skills-title"
+      >
+        <div class="container">
+          <header
+            class="section-heading section-heading-center section-heading-light"
+            data-reveal
+          >
+            <div class="section-badge">
+              <span aria-hidden="true">✦</span><span>Skills &amp; Focus</span>
+            </div>
+            <h2 id="skills-title">A focused toolkit for complete products</h2>
+            <p>
+              I build usable interfaces, connect them to Node.js services and
+              keep the flow understandable from screen to database.
+            </p>
+          </header>
+
+          <div class="skill-console" data-reveal>
+            <div class="skill-console-topline">
+              <span>CORE TOOLKIT / 2026</span>
+              <p><i data-lucide="circle-check"></i> Project-backed practice</p>
+            </div>
+
+            <div class="skill-core-grid">
+              <article class="skill-core skill-core-primary">
+                <header>
+                  <span class="skill-core-icon" aria-hidden="true">
+                    <i data-lucide="monitor-smartphone"></i>
+                  </span>
+                  <div>
+                    <small>CURRENT STRENGTH</small>
+                    <h3>Interface &amp; Mobile</h3>
+                  </div>
+                </header>
+                <p>
+                  Responsive screens and stateful product flows built around
+                  real user tasks.
+                </p>
+                <ul class="skill-tags" aria-label="Interface and mobile tools">
+                  <li>Flutter</li>
+                  <li>React</li>
+                  <li>Dart</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="skill-proof">
+                  <span>USED IN</span>
+                  <p>Teleprompter app · Portfolio UI · Sky Tonight dashboard</p>
+                </div>
+              </article>
+
+              <article class="skill-core skill-core-secondary">
+                <header>
+                  <span class="skill-core-icon" aria-hidden="true">
+                    <i data-lucide="database-zap"></i>
+                  </span>
+                  <div>
+                    <small>BACKEND FOCUS</small>
+                    <h3>Node.js &amp; Data</h3>
+                  </div>
+                </header>
+                <p>
+                  REST services, authentication and persistent data that support
+                  the product experience.
+                </p>
+                <ul class="skill-tags" aria-label="Backend and data tools">
+                  <li>Node.js</li>
+                  <li>REST APIs</li>
+                  <li>SQL</li>
+                  <li>Supabase</li>
+                  <li>Gemini API</li>
+                </ul>
+                <div class="skill-proof">
+                  <span>PRACTICED THROUGH</span>
+                  <p>Node.js learning APIs · MoneyBoys data · Auth flows</p>
+                </div>
+              </article>
+            </div>
+
+            <div
+              class="skill-product-flow"
+              aria-label="Product development flow"
+            >
+              <div>
+                <i data-lucide="mouse-pointer-2"></i>
+                <span><small>01</small>User action</span>
+              </div>
+              <i data-lucide="arrow-right"></i>
+              <div>
+                <i data-lucide="panels-top-left"></i>
+                <span><small>02</small>Interface state</span>
+              </div>
+              <i data-lucide="arrow-right"></i>
+              <div>
+                <i data-lucide="braces"></i>
+                <span><small>03</small>Service contract</span>
+              </div>
+              <i data-lucide="arrow-right"></i>
+              <div>
+                <i data-lucide="database"></i>
+                <span><small>04</small>Data &amp; response</span>
+              </div>
+            </div>
+
+            <div class="skill-practice">
+              <p>
+                <span>HOW I WORK</span>
+                Build one usable flow, validate its behavior, then document the
+                decisions and limits.
+              </p>
+              <div>
+                <span><i data-lucide="git-branch"></i> Git workflow</span>
+                <span><i data-lucide="boxes"></i> BLoC / State</span>
+                <span><i data-lucide="file-check-2"></i> Documentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-work"
+        id="work"
+        aria-labelledby="work-title"
+      >
+        <div class="container">
+          <header class="section-heading section-heading-center" data-reveal>
+            <div class="section-badge">
+              <span aria-hidden="true">✦</span><span>Selected Work</span>
+            </div>
+            <h2 id="work-title">Selected project work</h2>
+          </header>
+
+          <div class="project-list">
+            <article class="project-panel" data-project="moneyboys" data-reveal>
+              <div class="project-content">
+                <div class="project-topline">
+                  <p class="project-kicker project-kicker-yellow">MoneyBoys</p>
+                  <span class="project-status"
+                    ><span></span><span>Public Team Repository</span></span
+                  >
+                </div>
+                <div
+                  class="view-switch"
+                  role="tablist"
+                  aria-label="MoneyBoys project view"
+                >
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-project-view="product"
+                  >
+                    Product View
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-project-view="technical"
+                  >
+                    Technical View
+                  </button>
+                </div>
+                <div class="project-view is-visible" data-view-panel="product">
+                  <h3>Track spending and budgets in one finance app.</h3>
+                  <p>
+                    A team-built Flutter app for recording expenses, managing
+                    budgets, reviewing spending charts and requesting
+                    Gemini-supported guidance, with finance data stored in
+                    Supabase.
+                  </p>
+                  <ul class="feature-chips">
+                    <li>Expense tracking</li>
+                    <li>Budget planning</li>
+                    <li>Spending insights</li>
+                  </ul>
+                </div>
+                <div class="project-view" data-view-panel="technical" hidden>
+                  <h3>Feature modules backed by Supabase services.</h3>
+                  <p>
+                    Flutter screens use Cubit/BLoC where integrated and
+                    dedicated services for authentication, spending, budgets,
+                    categories and reports. Supabase provides PostgreSQL-backed
+                    persistence, FL Chart visualizes spending and Gemini
+                    supports optional financial guidance.
+                  </p>
+                  <dl class="technical-meta">
+                    <div>
+                      <dt>Contribution</dt>
+                      <dd>Auth · Supabase CRUD · finance data services</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>Flutter · Supabase · FL Chart · Gemini</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div
+                  class="project-system-map"
+                  aria-label="MoneyBoys engineering layers"
+                >
+                  <span class="project-map-label">SYSTEM MAP</span>
+                  <div class="project-layer-flow">
+                    <span
+                      ><i data-lucide="layout-dashboard"></i
+                      ><small>FRONTEND</small><strong>Finance UI</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="workflow"></i><small>APPLICATION</small
+                      ><strong>Cubit &amp; services</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="database-zap"></i><small>BACKEND</small
+                      ><strong>Supabase &amp; AI</strong></span
+                    >
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-project"
+                    href="https://github.com/TienTrn05/ProjectFinalMobile-"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>View GitHub</span
+                    ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <button
+                    class="text-action"
+                    type="button"
+                    data-case-study-open
+                  >
+                    <span>Read Case Study</span
+                    ><i data-lucide="plus" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project-media project-media-moneyboys">
+                <img
+                  class="moneyboys-logo"
+                  src="assets/images/projects/moneyboys-logo.jpg"
+                  width="1024"
+                  height="1024"
+                  loading="lazy"
+                  alt="Official MoneyBoys logo from the project repository"
+                  data-fallback="MONEYBOYS"
+                />
+                <img
+                  class="moneyboys-runtime-shot"
+                  src="assets/images/projects/moneyboys-signin.png"
+                  width="600"
+                  height="1067"
+                  loading="lazy"
+                  alt="MoneyBoys sign-in screen captured from the running Flutter project"
+                  data-fallback="MONEYBOYS SIGN IN"
+                />
+                <div class="runtime-capture-label">
+                  <i data-lucide="play" aria-hidden="true"></i>
+                  <span>Captured from repository build</span>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-panel"
+              data-project="teleprompter"
+              data-reveal
+            >
+              <div class="project-content">
+                <div class="project-topline">
+                  <p class="project-kicker project-kicker-purple">
+                    Mobile Teleprompter
+                  </p>
+                  <span class="project-status"
+                    ><i data-lucide="lock-keyhole" aria-hidden="true"></i
+                    ><span>Private Team Repository</span></span
+                  >
+                </div>
+                <div
+                  class="view-switch"
+                  role="tablist"
+                  aria-label="Mobile Teleprompter project view"
+                >
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-project-view="product"
+                  >
+                    Product View
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-project-view="technical"
+                  >
+                    Technical View
+                  </button>
+                </div>
+                <div class="project-view is-visible" data-view-panel="product">
+                  <h3>Mobile teleprompter and recording studio.</h3>
+                  <p>
+                    A Flutter mobile app for organizing scripts, reading with
+                    adjustable auto-scroll, recording through the device camera
+                    and managing captured media with a local editing workflow.
+                  </p>
+                  <ul class="feature-chips">
+                    <li>Script library</li>
+                    <li>Adjustable auto-scroll</li>
+                    <li>Mobile media editor</li>
+                  </ul>
+                </div>
+                <div class="project-view" data-view-panel="technical" hidden>
+                  <h3>Feature-based Flutter with local-first storage.</h3>
+                  <p>
+                    Flutter feature modules use Cubit state and repositories
+                    backed by SharedPreferences. Camera plugins handle capture,
+                    while FFmpeg renders trim, resize, watermark and subtitle
+                    edits. AI writing exists but requires external proxy
+                    configuration.
+                  </p>
+                  <dl class="technical-meta">
+                    <div>
+                      <dt>Contribution</dt>
+                      <dd>Script management · AI writing · media editing</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>Flutter · BLoC · Camera · FFmpeg</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div
+                  class="project-system-map"
+                  aria-label="Mobile Teleprompter engineering layers"
+                >
+                  <span class="project-map-label">SYSTEM MAP</span>
+                  <div class="project-layer-flow">
+                    <span
+                      ><i data-lucide="smartphone"></i><small>EXPERIENCE</small
+                      ><strong>Write &amp; edit</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="boxes"></i><small>APPLICATION</small
+                      ><strong>Flutter BLoC</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="cpu"></i><small>PLATFORM</small
+                      ><strong>Camera · FFmpeg</strong></span
+                    >
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-project"
+                    href="https://github.com/mxtruongplayboy/Mobile.Teleprompter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Private GitHub</span
+                    ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-media project-media-appstore project-media-teleprompter"
+              >
+                <div class="appstore-shot-stack">
+                  <img
+                    src="assets/images/projects/teleprompter-appstore-01.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Teleprompter UI reference showing floating scripts"
+                  />
+                  <img
+                    src="assets/images/projects/teleprompter-appstore-02.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Teleprompter UI reference showing script controls"
+                  />
+                  <img
+                    src="assets/images/projects/teleprompter-appstore-03.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Teleprompter UI reference showing live video prompting"
+                  />
+                </div>
+                <div class="repository-evidence-label">
+                  <i data-lucide="info" aria-hidden="true"></i>
+                  <span>Visual reference only · Not a repository build</span>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="project-panel"
+              data-project="sky-tonight"
+              data-reveal
+            >
+              <div class="project-content">
+                <div class="project-topline">
+                  <p class="project-kicker project-kicker-blue">Sky Tonight</p>
+                  <span class="project-status"
+                    ><i data-lucide="lock-keyhole" aria-hidden="true"></i
+                    ><span>Repository Status Unverified</span></span
+                  >
+                </div>
+                <div
+                  class="view-switch"
+                  role="tablist"
+                  aria-label="Sky Tonight project view"
+                >
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-project-view="product"
+                  >
+                    Product View
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-project-view="technical"
+                  >
+                    Technical View
+                  </button>
+                </div>
+                <div class="project-view is-visible" data-view-panel="product">
+                  <h3>Plan what is visible in the night sky.</h3>
+                  <p>
+                    A Flutter astronomy companion that combines location, date,
+                    weather and catalog-backed calculations to surface visible
+                    stars, planets, constellations and deep-sky objects.
+                  </p>
+                  <ul class="feature-chips">
+                    <li>Celestial visibility</li>
+                    <li>Location selection</li>
+                    <li>Multi-criteria sorting</li>
+                  </ul>
+                </div>
+                <div class="project-view" data-view-panel="technical" hidden>
+                  <h3>A location-aware, catalog-driven dashboard.</h3>
+                  <p>
+                    Flutter coordinates location and time input with services
+                    that load bundled catalogs, calculate visibility, call HTTP
+                    data sources and cache cards locally. A separate iOS
+                    SceneKit renderer exists, but is not connected to the
+                    current default route.
+                  </p>
+                  <dl class="technical-meta">
+                    <div>
+                      <dt>Contribution</dt>
+                      <dd>Dashboard · location flows · services · sorting</dd>
+                    </div>
+                    <div>
+                      <dt>Stack</dt>
+                      <dd>Flutter · Dart · HTTP · SharedPreferences</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div
+                  class="project-system-map"
+                  aria-label="Sky Tonight engineering layers"
+                >
+                  <span class="project-map-label">SYSTEM MAP</span>
+                  <div class="project-layer-flow">
+                    <span
+                      ><i data-lucide="map-pin"></i><small>INPUT</small
+                      ><strong>Location &amp; time</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="binary"></i><small>DATA LOGIC</small
+                      ><strong>Visibility services</strong></span
+                    >
+                    <i data-lucide="arrow-right"></i>
+                    <span
+                      ><i data-lucide="telescope"></i><small>EXPERIENCE</small
+                      ><strong>Visible Tonight</strong></span
+                    >
+                  </div>
+                </div>
+                <div class="project-actions">
+                  <a
+                    class="button button-project"
+                    href="https://github.com/freeaiutils/Mobile.Sky-Tonight/tree/develop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Repository Link</span
+                    ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="project-media project-media-appstore project-media-sky"
+              >
+                <div class="appstore-shot-stack">
+                  <img
+                    src="assets/images/projects/sky-appstore-01.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Sky Tonight UI reference showing an augmented sky map"
+                  />
+                  <img
+                    src="assets/images/projects/sky-appstore-02.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Sky Tonight UI reference showing planet search"
+                  />
+                  <img
+                    src="assets/images/projects/sky-appstore-03.png"
+                    width="783"
+                    height="1392"
+                    loading="lazy"
+                    alt="Sky Tonight UI reference showing satellite passes"
+                  />
+                </div>
+                <div class="repository-evidence-label">
+                  <i data-lucide="info" aria-hidden="true"></i>
+                  <span>Visual reference only · Not a repository build</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="work-footer" data-reveal>
+            <a
+              class="button button-dark"
+              href="https://github.com/TienTrn05"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>View All Projects</span
+              ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-building"
+        id="building"
+        aria-labelledby="building-title"
+      >
+        <div class="container">
+          <header class="section-heading section-heading-center" data-reveal>
+            <div class="section-badge">
+              <span aria-hidden="true">✦</span><span>Now</span>
+            </div>
+            <h2 id="building-title">What I’m learning now</h2>
+            <p>
+              The skills I’m actively practicing to connect mobile interfaces,
+              backend systems and reliable delivery.
+            </p>
+          </header>
+
+          <div
+            class="learning-slider"
+            data-learning-slider
+            data-reveal
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Current learning topics"
+          >
+            <div class="learning-slider-topline">
+              <p>
+                <span class="learning-pulse" aria-hidden="true"></span>
+                <span>LEARNING LOG</span>
+                <strong data-learning-counter>01–03 / 05</strong>
+              </p>
+              <div class="learning-controls" aria-label="Slider controls">
+                <button
+                  type="button"
+                  data-learning-prev
+                  aria-label="Show previous learning topic"
+                >
+                  <i data-lucide="arrow-left" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  data-learning-next
+                  aria-label="Show next learning topic"
+                >
+                  <i data-lucide="arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="learning-viewport">
+              <div class="building-grid" data-learning-track>
+                <article
+                  class="building-card"
+                  data-learning-slide
+                  aria-roledescription="slide"
+                  aria-label="1 of 5"
+                >
+                  <div
+                    class="building-visual building-visual-one"
+                    aria-hidden="true"
+                  >
+                    <i data-lucide="server-cog"></i><span>NODE.JS</span
+                    ><span>REST</span><span>SQL</span>
+                  </div>
+                  <div class="building-body">
+                    <div>
+                      <span class="status-tag status-active">Learning now</span
+                      ><span class="building-meta">BACKEND / 01</span>
+                    </div>
+                    <p class="building-eyebrow">Backend foundations</p>
+                    <h3>Building APIs beyond managed services</h3>
+                    <p>
+                      I’m learning to design a small Node.js REST API with
+                      validation, authentication and PostgreSQL so I understand
+                      the full request-to-database flow.
+                    </p>
+                    <ul class="learning-topics" aria-label="Topics">
+                      <li>Node.js</li>
+                      <li>REST APIs</li>
+                      <li>PostgreSQL</li>
+                    </ul>
+                    <a
+                      class="learning-link"
+                      href="https://nodejs.org/learn/getting-started/introduction-to-nodejs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Learn with Node.js</span
+                      ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </article>
+
+                <article
+                  class="building-card"
+                  data-learning-slide
+                  aria-roledescription="slide"
+                  aria-label="2 of 5"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="building-visual building-visual-two"
+                    aria-hidden="true"
+                  >
+                    <i data-lucide="flask-conical"></i><span>UNIT</span
+                    ><span>WIDGET</span><span>BLOC</span>
+                  </div>
+                  <div class="building-body">
+                    <div>
+                      <span class="status-tag status-exploring">Practicing</span
+                      ><span class="building-meta">QUALITY / 02</span>
+                    </div>
+                    <p class="building-eyebrow">Flutter quality</p>
+                    <h3>Testing behavior, not only screens</h3>
+                    <p>
+                      I’m practicing unit and widget tests for validation,
+                      Cubit/BLoC state changes and service failures to make
+                      mobile flows easier to trust and maintain.
+                    </p>
+                    <ul class="learning-topics" aria-label="Topics">
+                      <li>Unit tests</li>
+                      <li>Widget tests</li>
+                      <li>BLoC states</li>
+                    </ul>
+                    <a
+                      class="learning-link"
+                      href="https://docs.flutter.dev/testing/overview"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Open Flutter testing guide</span
+                      ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </article>
+
+                <article
+                  class="building-card"
+                  data-learning-slide
+                  aria-roledescription="slide"
+                  aria-label="3 of 5"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="building-visual building-visual-three"
+                    aria-hidden="true"
+                  >
+                    <i data-lucide="waypoints"></i><span>UI</span
+                    ><span>CONTRACT</span><span>DEPLOY</span>
+                  </div>
+                  <div class="building-body">
+                    <div>
+                      <span class="status-tag status-preparing">Exploring</span
+                      ><span class="building-meta">DELIVERY / 03</span>
+                    </div>
+                    <p class="building-eyebrow">End-to-end delivery</p>
+                    <h3>Connecting a complete full-stack flow</h3>
+                    <p>
+                      I’m learning to define API contracts, handle loading and
+                      error states, deploy a small service and document the
+                      decisions behind the finished flow.
+                    </p>
+                    <ul class="learning-topics" aria-label="Topics">
+                      <li>API contracts</li>
+                      <li>Error states</li>
+                      <li>Deployment</li>
+                    </ul>
+                    <a
+                      class="learning-link"
+                      href="https://expressjs.com/en/guide/routing/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Study Express routing</span
+                      ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </article>
+
+                <article
+                  class="building-card"
+                  data-learning-slide
+                  aria-roledescription="slide"
+                  aria-label="4 of 5"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="building-visual building-visual-four"
+                    aria-hidden="true"
+                  >
+                    <i data-lucide="database"></i><span>TABLES</span
+                    ><span>JOIN</span><span>INDEX</span>
+                  </div>
+                  <div class="building-body">
+                    <div>
+                      <span class="status-tag status-database">Next</span
+                      ><span class="building-meta">DATA / 04</span>
+                    </div>
+                    <p class="building-eyebrow">Relational data</p>
+                    <h3>Designing data before writing queries</h3>
+                    <p>
+                      I’m strengthening SQL fundamentals, relationships,
+                      constraints and indexes so application data stays clear,
+                      consistent and easier to query.
+                    </p>
+                    <ul class="learning-topics" aria-label="Topics">
+                      <li>Relations</li>
+                      <li>Constraints</li>
+                      <li>Indexes</li>
+                    </ul>
+                    <a
+                      class="learning-link"
+                      href="https://www.postgresql.org/docs/current/tutorial.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Follow PostgreSQL tutorial</span
+                      ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </article>
+
+                <article
+                  class="building-card"
+                  data-learning-slide
+                  aria-roledescription="slide"
+                  aria-label="5 of 5"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="building-visual building-visual-five"
+                    aria-hidden="true"
+                  >
+                    <i data-lucide="workflow"></i><span>PUSH</span
+                    ><span>CHECK</span><span>SHIP</span>
+                  </div>
+                  <div class="building-body">
+                    <div>
+                      <span class="status-tag status-delivery">Queued</span
+                      ><span class="building-meta">CI/CD / 05</span>
+                    </div>
+                    <p class="building-eyebrow">Reliable delivery</p>
+                    <h3>Automating checks before deployment</h3>
+                    <p>
+                      I’m learning how a simple CI workflow can run checks on
+                      every change and make small projects safer to review,
+                      merge and release.
+                    </p>
+                    <ul class="learning-topics" aria-label="Topics">
+                      <li>Workflows</li>
+                      <li>Automated checks</li>
+                      <li>Deployment</li>
+                    </ul>
+                    <a
+                      class="learning-link"
+                      href="https://docs.github.com/en/actions/get-started/understand-github-actions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>Learn GitHub Actions</span
+                      ><i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="learning-slider-footer">
+              <div class="learning-dots" aria-label="Choose a learning topic">
+                <button
+                  type="button"
+                  class="is-active"
+                  data-learning-dot="0"
+                  aria-label="Show backend foundations"
+                  aria-current="true"
+                ></button>
+                <button
+                  type="button"
+                  data-learning-dot="1"
+                  aria-label="Show Flutter testing"
+                ></button>
+                <button
+                  type="button"
+                  data-learning-dot="2"
+                  aria-label="Show end-to-end delivery"
+                ></button>
+                <button
+                  type="button"
+                  data-learning-dot="3"
+                  aria-label="Show relational data"
+                ></button>
+                <button
+                  type="button"
+                  data-learning-dot="4"
+                  aria-label="Show reliable delivery"
+                ></button>
+              </div>
+              <p class="learning-hint">Drag or use arrow keys to explore</p>
+              <p class="sr-only" data-learning-live aria-live="polite">
+                Showing backend foundations
+              </p>
+            </div>
+          </div>
+          <p class="system-status" data-reveal>
+            <span>LEARNING: IN PROGRESS</span
+            ><span>FOCUS: FULL-STACK FOUNDATIONS</span><span>TOPICS: 05</span
+            ><span>UPDATED: NOW</span>
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section section-skills"
+        aria-labelledby="legacy-skills-title"
+        hidden
+      >
+        <div class="container">
+          <header class="section-heading section-heading-center" data-reveal>
+            <div class="section-badge">
+              <span aria-hidden="true">✦</span><span>Skills &amp; Focus</span>
+            </div>
+            <h2 id="legacy-skills-title">Tools grouped by responsibility</h2>
+            <p>
+              Tools I have used or am currently learning. The descriptions
+              distinguish project-backed practice from the next development
+              path.
+            </p>
+          </header>
+
+          <div class="stack-catalog">
+            <div class="stack-domain-grid">
+              <article class="stack-domain stack-domain-front" data-reveal>
+                <header>
+                  <span class="stack-domain-icon" aria-hidden="true"
+                    ><i data-lucide="component"></i
+                  ></span>
+                  <div>
+                    <small>01 · PRESENTATION</small>
+                    <h3>Frontend</h3>
+                  </div>
+                </header>
+                <p>
+                  Components, responsive layouts and stateful product flows.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="atom"></i
+                    ><span
+                      ><strong>React</strong
+                      ><small>Learning through UI practice</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="smartphone"></i
+                    ><span
+                      ><strong>Flutter</strong
+                      ><small>Cross-platform UI</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="palette"></i
+                    ><span
+                      ><strong>HTML · CSS · JavaScript</strong
+                      ><small>This portfolio implementation</small></span
+                    >
+                  </li>
+                </ul>
+              </article>
+
+              <article class="stack-domain stack-domain-back" data-reveal>
+                <header>
+                  <span class="stack-domain-icon" aria-hidden="true"
+                    ><i data-lucide="server"></i
+                  ></span>
+                  <div>
+                    <small>02 · APPLICATION</small>
+                    <h3>Backend</h3>
+                  </div>
+                </header>
+                <p>Backend concepts I am practicing beyond managed services.</p>
+                <ul>
+                  <li>
+                    <i data-lucide="hexagon"></i
+                    ><span
+                      ><strong>Node.js</strong
+                      ><small>Currently learning fundamentals</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="waypoints"></i
+                    ><span
+                      ><strong>REST APIs</strong
+                      ><small>Practicing client contracts</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="shield-check"></i
+                    ><span
+                      ><strong>Supabase Auth</strong
+                      ><small>Identity &amp; access</small></span
+                    >
+                  </li>
+                </ul>
+              </article>
+
+              <article class="stack-domain stack-domain-data" data-reveal>
+                <header>
+                  <span class="stack-domain-icon" aria-hidden="true"
+                    ><i data-lucide="database"></i
+                  ></span>
+                  <div>
+                    <small>03 · PERSISTENCE</small>
+                    <h3>Data &amp; Integration</h3>
+                  </div>
+                </header>
+                <p>
+                  Structured storage and external capabilities connected to
+                  products.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="table-properties"></i
+                    ><span
+                      ><strong>SQL</strong
+                      ><small>Data modeling &amp; queries</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="radio-tower"></i
+                    ><span
+                      ><strong>Real-time data</strong
+                      ><small>Live product state</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="sparkles"></i
+                    ><span
+                      ><strong>Gemini API</strong
+                      ><small>AI-assisted workflows</small></span
+                    >
+                  </li>
+                </ul>
+              </article>
+
+              <article class="stack-domain stack-domain-delivery" data-reveal>
+                <header>
+                  <span class="stack-domain-icon" aria-hidden="true"
+                    ><i data-lucide="git-merge"></i
+                  ></span>
+                  <div>
+                    <small>04 · PRACTICE</small>
+                    <h3>Workflow &amp; Code Quality</h3>
+                  </div>
+                </header>
+                <p>
+                  Boundaries and workflows that keep a product understandable.
+                </p>
+                <ul>
+                  <li>
+                    <i data-lucide="boxes"></i
+                    ><span
+                      ><strong>BLoC / State</strong
+                      ><small>Predictable behavior</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="git-branch"></i
+                    ><span
+                      ><strong>Git</strong
+                      ><small>Team and personal version control</small></span
+                    >
+                  </li>
+                  <li>
+                    <i data-lucide="file-code-2"></i
+                    ><span
+                      ><strong>Documentation</strong
+                      ><small>Readable decisions</small></span
+                    >
+                  </li>
+                </ul>
+              </article>
+            </div>
+
+            <aside class="stack-focus-panel" data-reveal>
+              <div class="focus-orbit" aria-hidden="true">
+                <span><i data-lucide="panels-top-left"></i></span>
+                <strong>FULL<br />STACK</strong>
+                <span><i data-lucide="server-cog"></i></span>
+              </div>
+              <small>CURRENT DIRECTION</small>
+              <h3>Growing toward backend, grounded in products.</h3>
+              <p>
+                I am currently deepening Node.js backend and system design
+                without losing sight of the interface and mobile clients that
+                consume the system.
+              </p>
+              <dl>
+                <div>
+                  <dt>01</dt>
+                  <dd>Strongest area<br /><span>Flutter practice</span></dd>
+                </div>
+                <div>
+                  <dt>03</dt>
+                  <dd>
+                    Project records<br /><span>3 team learning repos</span>
+                  </dd>
+                </div>
+              </dl>
+              <span class="focus-availability"
+                ><i data-lucide="circle-dot"></i> Open to internships &amp;
+                junior opportunities</span
+              >
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-values"
+        id="values"
+        aria-labelledby="values-title"
+      >
+        <div class="container values-layout">
+          <div class="values-header" data-reveal>
+            <div class="section-badge">
+              <span aria-hidden="true">✦</span><span>Working Principles</span>
+            </div>
+            <h2 id="values-title">
+              What you can expect when we work together.
+            </h2>
+            <p>
+              I keep collaboration clear, delivery dependable and solutions
+              grounded in the problem at hand.
+            </p>
+          </div>
+
+          <div class="value-nodes">
+            <article
+              class="value-node value-node-friendly"
+              data-reveal
+              style="--reveal-delay: 100ms"
+            >
+              <div class="value-node-topline">
+                <b>01</b>
+                <span class="value-icon" aria-hidden="true"
+                  ><i data-lucide="messages-square"></i
+                ></span>
+              </div>
+              <div class="value-node-copy">
+                <h3>Communicate with clarity</h3>
+                <p>
+                  I share progress, surface questions early and turn feedback
+                  into concrete next steps.
+                </p>
+              </div>
+              <div class="value-outcome">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                <strong>Shared context, fewer surprises</strong>
+              </div>
+            </article>
+
+            <article
+              class="value-node value-node-disciplined"
+              data-reveal
+              style="--reveal-delay: 180ms"
+            >
+              <div class="value-node-topline">
+                <b>02</b>
+                <span class="value-icon" aria-hidden="true"
+                  ><i data-lucide="list-checks"></i
+                ></span>
+              </div>
+              <div class="value-node-copy">
+                <h3>Follow through</h3>
+                <p>
+                  I take ownership of commitments, work consistently and make
+                  progress visible from start to finish.
+                </p>
+              </div>
+              <div class="value-outcome">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                <strong>Steady, dependable momentum</strong>
+              </div>
+            </article>
+
+            <article
+              class="value-node value-node-creative"
+              data-reveal
+              style="--reveal-delay: 260ms"
+            >
+              <div class="value-node-topline">
+                <b>03</b>
+                <span class="value-icon" aria-hidden="true"
+                  ><i data-lucide="lightbulb"></i
+                ></span>
+              </div>
+              <div class="value-node-copy">
+                <h3>Solve with intent</h3>
+                <p>
+                  I explore alternatives when they add value, then choose the
+                  simplest solution that fits the real constraint.
+                </p>
+              </div>
+              <div class="value-outcome">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                <strong>Practical, considered decisions</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="contact-intro">
+        <div class="container contact-grid">
+          <div data-reveal>
+            <h2>Let's build something meaningful.</h2>
+            <p>
+              Let's talk about software, products or a role where I can
+              contribute and grow.
+            </p>
+            <div class="contact-actions">
+              <a
+                class="button button-primary"
+                href="mailto:ngoctien20022005@gmail.com"
+                ><span>Say Hello</span
+                ><i data-lucide="send" aria-hidden="true"></i
+              ></a>
+              <button
+                class="button button-outline-light"
+                type="button"
+                data-copy-email
+              >
+                <span data-copy-label>Copy Email</span
+                ><i data-lucide="copy" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <div class="contact-visual" aria-hidden="true" data-reveal>
+            <div class="code-window">
+              <div class="code-window-bar">
+                <span></span><span></span><span></span
+                ><small>developer.profile.js</small>
+              </div>
+              <pre><code><span class="code-purple">const</span> developerProfile = {
+  name: <span class="code-yellow">"Trần Ngọc Tiến"</span>,
+  education: <span class="code-yellow">"Fourth-year IT student"</span>,
+  targetRole: <span class="code-yellow">"Full-stack Developer Intern"</span>,
+  mainTech: [
+    <span class="code-yellow">"Flutter"</span>, <span class="code-yellow">"React"</span>, <span class="code-yellow">"Node.js"</span>, <span class="code-yellow">"SQL"</span>
+  ],
+  funFact: <span class="code-yellow">"I turn class ideas into working apps"</span>,
+  available: <span class="code-purple">true</span>
+};</code></pre>
+              <div class="build-pill"><span></span> OPEN TO INTERNSHIPS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <div class="container">
+          <div class="footer-contact-grid">
+            <div>
+              <i data-lucide="phone" aria-hidden="true"></i>
+              <p>Available for a quick conversation.</p>
+              <a href="tel:+84935572707">0935 572 707</a>
+            </div>
+            <div>
+              <i data-lucide="mail" aria-hidden="true"></i>
+              <p>The best way to start a conversation.</p>
+              <a href="mailto:ngoctien20022005@gmail.com"
+                >ngoctien20022005@gmail.com</a
+              >
+            </div>
+            <div>
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <p>Building and learning from.</p>
+              <strong>Da Nang, Vietnam</strong>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div>
+              <p>
+                <span>Designed and engineered by Trần Ngọc Tiến.</span>
+                © <span data-current-year></span>
+              </p>
+              <small
+                >Designed with creativity. Built with logic. Refined with
+                discipline.</small
+              >
+            </div>
+            <div class="footer-links">
+              <a
+                href="https://github.com/TienTrn05"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                ><i data-lucide="github" aria-hidden="true"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/tr%E1%BA%A7n-nin-7b0bba355/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                ><i data-lucide="linkedin" aria-hidden="true"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/nin.tran0205"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                ><i data-lucide="facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#home" aria-label="Back to top"
+                ><i data-lucide="arrow-up" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <dialog
+      class="case-dialog"
+      data-case-dialog
+      aria-labelledby="case-dialog-title"
+    >
+      <div class="case-dialog-shell">
+        <button
+          class="case-close"
+          type="button"
+          data-case-study-close
+          aria-label="Close case study"
+        >
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <div class="section-badge">
+          <span aria-hidden="true">✦</span><span>MoneyBoys Case Study</span>
+        </div>
+        <h2 id="case-dialog-title">
+          Finance tracking backed by a shared Supabase data layer.
+        </h2>
+        <div class="case-grid">
+          <article>
+            <span>01</span>
+            <h3>Problem</h3>
+            <p>
+              Transactions, budgets, charts and advice often live in separate
+              tools.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Context</h3>
+            <p>
+              Bring expense tracking, budgets, charts and optional AI guidance
+              into one Flutter application.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Role</h3>
+            <p>
+              Implement authentication, finance models and Supabase CRUD
+              services for spending, budgets, categories and user data.
+            </p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Challenge</h3>
+            <p>
+              Keep account, transaction and budget data consistent across
+              several feature screens.
+            </p>
+          </article>
+          <article>
+            <span>06</span>
+            <h3>Solution</h3>
+            <p>
+              Separate Cubit-driven UI state from dedicated authentication,
+              reporting and finance data services.
+            </p>
+          </article>
+          <article>
+            <span>07</span>
+            <h3>Result</h3>
+            <p>
+              A working team prototype combining expense and budget CRUD,
+              spending charts and Gemini-supported guidance.
+            </p>
+          </article>
+        </div>
+        <div class="architecture-wrap">
+          <span class="architecture-index">04</span>
+          <h3>Architecture</h3>
+          <div class="architecture" aria-label="MoneyBoys architecture">
+            <div>Flutter <small>Interface</small></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div>Cubit <small>State</small></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div>Services <small>Finance CRUD</small></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div>Supabase <small>PostgreSQL</small></div>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+            <div>Gemini <small>Optional Guidance</small></div>
+          </div>
+        </div>
+        <blockquote>
+          <span>08 / <span>Lessons</span></span>
+          <p>
+            “Good architecture is not about adding complexity. It is about
+            making future changes easier.”
+          </p>
+        </blockquote>
+      </div>
+    </dialog>
+
+    <div class="sr-only" aria-live="polite" data-live-region></div>
+
+    <script
+      defer
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+    ></script>
+    <script defer src="script.js?v=20260730-mobile-header"></script>
+  </body>
+</html>
