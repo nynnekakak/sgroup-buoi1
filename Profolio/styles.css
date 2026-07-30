@@ -37,6 +37,7 @@ html[data-theme="dark"] {
 }
 
 html {
+  font-size: 80%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
   overflow-x: clip;
@@ -2985,6 +2986,14 @@ html[data-theme="dark"] .section-services {
 }
 
 /* Currently building */
+.section-building {
+  padding-block: clamp(4rem, 5vw, 5rem);
+}
+
+.section-building .section-heading {
+  margin-bottom: clamp(2.25rem, 3vw, 3rem);
+}
+
 .learning-slider {
   --learning-gap: 1.75rem;
 }
